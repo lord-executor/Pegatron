@@ -20,6 +20,11 @@ namespace Pegatron.UnitTests.Mocks
 
 		public static StaticLexer FromWords(params string[] words)
 		{
+			return FromWords((IEnumerable<string>)words);
+		}
+
+		public static StaticLexer FromWords(IEnumerable<string> words)
+		{
 			return new StaticLexer(words.Select((word, index) => new Token("word")
 			{
 				Value = word,
