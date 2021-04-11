@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace Pegatron.Core
@@ -36,6 +37,7 @@ namespace Pegatron.Core
 			}
 		}
 
+		[ExcludeFromCodeCoverage]
 		IEnumerator IEnumerable.GetEnumerator()
 		{
 			return GetEnumerator();
