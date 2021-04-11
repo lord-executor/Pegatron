@@ -1,4 +1,4 @@
-namespace Pegatron.UnitTests.Mocks
+namespace Pegatron
 {
 	public class Token : IToken
 	{
@@ -26,12 +26,5 @@ namespace Pegatron.UnitTests.Mocks
 		}
 
 		public static Token Eos { get; } = new Token();
-
-		public static Token Dummy { get; } = new Token("dummy")
-		{
-			Value = "dummy",
-			Line = 0,
-			Start = 0,
-		};
 	}
 }

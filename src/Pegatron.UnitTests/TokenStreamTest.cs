@@ -29,13 +29,13 @@ namespace Pegatron.UnitTests
 		[TestCase(10)]
 		public void Stream_WithInvalidLexer_ThrowsMissingEosTokenException(int tokenCount)
 		{
-			var tokens = Enumerable.Repeat(Token.Dummy, tokenCount);
+			var tokens = Enumerable.Repeat(_dummy, tokenCount);
 			var stream = new TokenStream(new StaticLexer(tokens));
 
 			if (tokenCount > 0)
 			{
-				stream.Get(0).Value.Should().Be(Token.Dummy.Value);
-				stream.Get(tokenCount - 1).Value.Should().Be(Token.Dummy.Value);
+				stream.Get(0).Value.Should().Be(_dummy.Value);
+				stream.Get(tokenCount - 1).Value.Should().Be(_dummy.Value);
 			}
 
 			// the exception is only thrown once the end of the lexer tokens has been reached
@@ -74,6 +74,13 @@ namespace Pegatron.UnitTests
 			source.MaxStep.Should().Be(maxIndex + 1);
 			tokens.Should().BeEquivalentTo(expectedTokens);
 		}
+
+		private readonly Token _dummy = new Token("dummy")
+		{
+			Value = "dummy",
+			Line = 0,
+			Start = 0,
+		};
 
 		/// <summary>
 		/// This token source is used to verify that the token stream buffers all of the tokens that it reads and

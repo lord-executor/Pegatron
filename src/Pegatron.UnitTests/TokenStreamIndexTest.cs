@@ -44,13 +44,13 @@ namespace Pegatron.UnitTests
 		[TestCase(10)]
 		public void Stream_WithInvalidLexer_ThrowsMissingEosTokenException(int tokenCount)
 		{
-			var tokens = Enumerable.Repeat(Token.Dummy, tokenCount);
+			var tokens = Enumerable.Repeat(_dummy, tokenCount);
 			var index = new TokenStream(new StaticLexer(tokens)).Start();
 
 			for (var i = 0; i < tokenCount; i++)
 			{
 				index.Index.Should().Be(i);
-				index.Get().Value.Should().Be(Token.Dummy.Value);
+				index.Get().Value.Should().Be(_dummy.Value);
 				index = index.Next();
 			}
 
@@ -68,5 +68,12 @@ namespace Pegatron.UnitTests
 			index = index.Next();
 			index.Get().IsEndOfStream.Should().BeTrue();
 		}
+
+		private readonly Token _dummy = new Token("dummy")
+		{
+			Value = "dummy",
+			Line = 0,
+			Start = 0,
+		};
 	}
 }

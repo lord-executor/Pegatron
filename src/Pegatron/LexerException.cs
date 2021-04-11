@@ -8,7 +8,6 @@ namespace Pegatron
 		MissingEosToken,
 	}
 
-	[Serializable]
 	public class LexerException : Exception
 	{
 		private static readonly IDictionary<LexerExceptionId, string> _messages = new Dictionary<LexerExceptionId, string>
@@ -22,9 +21,5 @@ namespace Pegatron
 		{
 			Id = lexerExceptionId;
 		}
-
-		protected LexerException(
-		  System.Runtime.Serialization.SerializationInfo info,
-		  System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
 	}
 }
