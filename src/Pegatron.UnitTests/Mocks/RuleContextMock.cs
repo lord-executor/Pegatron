@@ -22,10 +22,9 @@ namespace Pegatron.UnitTests.Mocks
 
 		public RuleOperation Call(IRuleRef rule, TokenStreamIndex index, out CoroutineResult<RuleResult> result)
 		{
-			var ctx = new RuleContextMock(index);
-			rule.Grab(ctx).ToList();
 			result = new CoroutineResult<RuleResult>();
-			result.Resolve(ctx.Result);
+			var ctx = new RuleContextMock(index);
+			result.Resolve(rule.Evaluate(ctx));
 			foreach (var t in ctx.Tokens)
 			{
 				Tokens.Add(t);

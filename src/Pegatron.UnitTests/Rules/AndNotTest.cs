@@ -3,8 +3,6 @@ using NUnit.Framework;
 using Pegatron.Core;
 using Pegatron.Core.Rules;
 using Pegatron.UnitTests.Mocks;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Pegatron.UnitTests.Rules
@@ -51,7 +49,7 @@ namespace Pegatron.UnitTests.Rules
 		private void AssertLookahead(IRule rule, TokenStreamIndex index, bool expectedSuccess)
 		{
 			var context = new RuleContextMock(index);
-			rule.Grab(context).ToList();
+			rule.Evaluate(context);
 
 			context.Result.IsSuccess.Should().Be(expectedSuccess);
 			context.Result.Index.Index.Should().Be(0);

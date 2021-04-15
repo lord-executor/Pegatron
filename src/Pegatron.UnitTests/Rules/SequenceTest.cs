@@ -34,7 +34,7 @@ namespace Pegatron.UnitTests.Rules
 			var context = new RuleContextMock(index);
 			var rule = CreateAbbaRule();
 
-			rule.Grab(context).ToList();
+			rule.Evaluate(context);
 
 			context.Result.IsSuccess.Should().Be(expectedMatch.Length == 4);
 			context.Result.Index.Index.Should().Be(context.Result.IsSuccess ? start + expectedMatch.Length : start);

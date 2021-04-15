@@ -35,7 +35,7 @@ namespace Pegatron.UnitTests.Rules
 			var context = new RuleContextMock(index);
 			var rule = CreateAOrBRule();
 
-			rule.Grab(context).ToList();
+			rule.Evaluate(context);
 
 			context.Result.IsSuccess.Should().Be(expectedMatch.Length == 1);
 			context.Result.Index.Index.Should().Be(context.Result.IsSuccess ? start + 1 : start);

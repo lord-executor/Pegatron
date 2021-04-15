@@ -54,7 +54,7 @@ namespace Pegatron.UnitTests.Rules
 			while (!index.Get().IsEndOfStream)
 			{
 				var context = new RuleContextMock(index);
-				rule.Grab(context).ToList();
+				rule.Evaluate(context);
 
 				if (successSet.Contains(index.Index))
 				{
@@ -74,7 +74,7 @@ namespace Pegatron.UnitTests.Rules
 			}
 
 			var eosContext = new RuleContextMock(index);
-			rule.Grab(eosContext).ToList();
+			rule.Evaluate(eosContext);
 			eosContext.Result.IsSuccess.Should().BeFalse();
 			eosContext.Tokens.Count.Should().Be(0);
 		}
@@ -94,7 +94,7 @@ namespace Pegatron.UnitTests.Rules
 			while (!index.Get().IsEndOfStream)
 			{
 				var context = new RuleContextMock(index);
-				rule.Grab(context).ToList();
+				rule.Evaluate(context);
 
 				if (context.Result.IsSuccess)
 				{

@@ -38,7 +38,7 @@ namespace Pegatron.UnitTests.Rules
 				index = new TokenStreamIndex(stream, i);
 				context = new RuleContextMock(index);
 
-				rule.Grab(context).ToList();
+				rule.Evaluate(context);
 
 				context.Result.IsSuccess.Should().BeTrue();
 				context.Result.Index.Index.Should().Be(i + 1);
@@ -48,7 +48,7 @@ namespace Pegatron.UnitTests.Rules
 			index = new TokenStreamIndex(stream, text.Length);
 			context = new RuleContextMock(index);
 
-			rule.Grab(context).ToList();
+			rule.Evaluate(context);
 
 			context.Result.IsSuccess.Should().BeFalse();
 			context.Result.Index.Index.Should().Be(index.Index);

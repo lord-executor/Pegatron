@@ -29,7 +29,7 @@ namespace Pegatron.UnitTests.Rules
 			var context = new RuleContextMock(index);
 			var rule = CreateARepeatedRule();
 
-			rule.Grab(context).ToList();
+			rule.Evaluate(context);
 
 			context.Result.IsSuccess.Should().BeTrue();
 			context.Result.Index.Index.Should().Be(count);
@@ -50,7 +50,7 @@ namespace Pegatron.UnitTests.Rules
 			var context = new RuleContextMock(index);
 			var rule = CreateARepeatedRule(3, 5);
 
-			rule.Grab(context).ToList();
+			rule.Evaluate(context);
 
 			context.Result.IsSuccess.Should().Be(expectedSuccess);
 			context.Result.Index.Index.Should().Be(expectedSuccess ? expectedMatch.Length : 0);
