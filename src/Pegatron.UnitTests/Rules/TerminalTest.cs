@@ -59,12 +59,14 @@ namespace Pegatron.UnitTests.Rules
 				if (successSet.Contains(index.Index))
 				{
 					context.Result.IsSuccess.Should().BeTrue();
+					context.Result.Index.Index.Should().Be(index.Index + 1);
 					context.Tokens.Count.Should().Be(1);
 					context.Tokens.All(t => t.Value == "A").Should().BeTrue();
 				}
 				else
 				{
 					context.Result.IsSuccess.Should().BeFalse();
+					context.Result.Index.Index.Should().Be(index.Index);
 					context.Tokens.Count.Should().Be(0);
 				}
 

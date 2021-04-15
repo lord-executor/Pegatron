@@ -28,7 +28,7 @@ namespace Pegatron.UnitTests.Rules
 		[TestCase("C", 0, "")]
 		[TestCase("XXABXX", 2, "A")]
 		[TestCase("XXABXX", 3, "B")]
-		public void AbbaSequence_GivenParseTextAndStart_BehavesCorrectly(string text, int start, string expectedMatch)
+		public void AOrB_GivenParseTextAndStart_BehavesCorrectly(string text, int start, string expectedMatch)
 		{
 			var stream = new TokenStream(new CharacterLexer(text));
 			var index = new TokenStreamIndex(stream, start);
@@ -38,6 +38,7 @@ namespace Pegatron.UnitTests.Rules
 			rule.Grab(context).ToList();
 
 			context.Result.IsSuccess.Should().Be(expectedMatch.Length == 1);
+			context.Result.Index.Index.Should().Be(context.Result.IsSuccess ? start + 1 : start);
 			context.ConcatTokens().Should().Be(expectedMatch);
 		}
 

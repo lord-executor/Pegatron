@@ -37,6 +37,7 @@ namespace Pegatron.UnitTests.Rules
 			rule.Grab(context).ToList();
 
 			context.Result.IsSuccess.Should().Be(expectedMatch.Length == 4);
+			context.Result.Index.Index.Should().Be(context.Result.IsSuccess ? start + expectedMatch.Length : start);
 			context.ConcatTokens().Should().Be(expectedMatch);
 		}
 

@@ -32,6 +32,7 @@ namespace Pegatron.UnitTests.Rules
 			rule.Grab(context).ToList();
 
 			context.Result.IsSuccess.Should().BeTrue();
+			context.Result.Index.Index.Should().Be(count);
 			context.Tokens.Count.Should().Be(count);
 			context.Tokens.All(t => t.Value == "A").Should().BeTrue();
 		}
@@ -52,6 +53,7 @@ namespace Pegatron.UnitTests.Rules
 			rule.Grab(context).ToList();
 
 			context.Result.IsSuccess.Should().Be(expectedSuccess);
+			context.Result.Index.Index.Should().Be(expectedSuccess ? expectedMatch.Length : 0);
 			context.ConcatTokens().Should().Be(expectedMatch);
 		}
 
