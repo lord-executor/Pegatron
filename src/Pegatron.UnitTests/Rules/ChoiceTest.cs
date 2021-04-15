@@ -3,48 +3,49 @@ using NUnit.Framework;
 using Pegatron.Core;
 using Pegatron.Core.Rules;
 using Pegatron.UnitTests.Mocks;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Pegatron.UnitTests.Rules
 {
 	[TestFixture]
-	public class SequenceTest
+	public class ChoiceTest
 	{
 		[Test]
-		public void AbbaSequence_ToString_ReturnsCorrectDisplayText()
+		public void AOrB_ToString_ReturnsCorrectDisplayText()
 		{
-			var rule = CreateAbbaRule();
+			var rule = CreateAOrBRule();
 
 			rule.Name.Should().Be("TEST");
-			rule.ToString().Should().Be("A B B A");
+			rule.ToString().Should().Be("A | B");
 		}
 
 		[Test]
-		[TestCase("ABBA", 0, "ABBA")]
-		[TestCase("ABBA", 1, "")]
-		[TestCase("ABB", 0, "ABB")]
-		[TestCase("ABAB", 0, "AB")]
-		[TestCase("ABABBA", 0, "AB")]
-		[TestCase("ABABBA", 2, "ABBA")]
-		[TestCase("ABBABBA", 0, "ABBA")]
+		[TestCase("", 0, "")]
+		[TestCase("A", 0, "A")]
+		[TestCase("B", 0, "B")]
+		[TestCase("C", 0, "")]
+		[TestCase("XXABXX", 2, "A")]
+		[TestCase("XXABXX", 3, "B")]
 		public void AbbaSequence_GivenParseTextAndStart_BehavesCorrectly(string text, int start, string expectedMatch)
 		{
 			var stream = new TokenStream(new CharacterLexer(text));
 			var index = new TokenStreamIndex(stream, start);
 			var context = new RuleContextMock(index);
-			var rule = CreateAbbaRule();
+			var rule = CreateAOrBRule();
 
 			rule.Grab(context).ToList();
 
-			context.Result.IsSuccess.Should().Be(expectedMatch.Length == 4);
+			context.Result.IsSuccess.Should().Be(expectedMatch.Length == 1);
 			context.ConcatTokens().Should().Be(expectedMatch);
 		}
 
-		private Sequence CreateAbbaRule()
+		private Choice CreateAOrBRule()
 		{
 			var ruleA = new SimpleRef(new Terminal("A", "A"));
 			var ruleB = new SimpleRef(new Terminal("B", "B"));
-			return new Sequence("TEST", ruleA, ruleB, ruleB, ruleA);
+			return new Choice("TEST", ruleA, ruleB);
 		}
 	}
 }
