@@ -31,15 +31,14 @@ namespace Pegatron.UnitTests.Rules
 		public void AOrB_GivenParseTextAndStart_BehavesCorrectly(string text, int start, string expectedMatch)
 		{
 			var stream = new TokenStream(new CharacterLexer(text));
-			var index = new TokenStreamIndex(stream, start);
-			var context = new RuleContextMock(index);
+			var index = new TokenStreamIndex(stream, start);			
 			var rule = CreateAOrBRule();
 
-			rule.Evaluate(context);
+			var opsMock = index.OperationsMock().Evaluate(rule);
 
-			context.Result.IsSuccess.Should().Be(expectedMatch.Length == 1);
-			context.Result.Index.Index.Should().Be(context.Result.IsSuccess ? start + 1 : start);
-			context.ConcatTokens().Should().Be(expectedMatch);
+			opsMock.Result.IsSuccess.Should().Be(expectedMatch.Length == 1);
+			opsMock.Result.Index.Index.Should().Be(opsMock.Result.IsSuccess ? start + 1 : start);
+			opsMock.ConcatTokens().Should().Be(expectedMatch);
 		}
 
 		private Choice CreateAOrBRule()

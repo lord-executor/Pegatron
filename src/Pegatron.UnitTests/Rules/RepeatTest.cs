@@ -26,15 +26,14 @@ namespace Pegatron.UnitTests.Rules
 		{
 			var stream = new TokenStream(new CharacterLexer(text));
 			var index = new TokenStreamIndex(stream, 0);
-			var context = new RuleContextMock(index);
 			var rule = CreateARepeatedRule();
 
-			rule.Evaluate(context);
+			var opsMock = index.OperationsMock().Evaluate(rule);
 
-			context.Result.IsSuccess.Should().BeTrue();
-			context.Result.Index.Index.Should().Be(count);
-			context.Tokens.Count.Should().Be(count);
-			context.Tokens.All(t => t.Value == "A").Should().BeTrue();
+			opsMock.Result.IsSuccess.Should().BeTrue();
+			opsMock.Result.Index.Index.Should().Be(count);
+			opsMock.Tokens.Count.Should().Be(count);
+			opsMock.Tokens.All(t => t.Value == "A").Should().BeTrue();
 		}
 
 		[Test]
@@ -47,14 +46,13 @@ namespace Pegatron.UnitTests.Rules
 		{
 			var stream = new TokenStream(new CharacterLexer(text));
 			var index = new TokenStreamIndex(stream, 0);
-			var context = new RuleContextMock(index);
 			var rule = CreateARepeatedRule(3, 5);
 
-			rule.Evaluate(context);
+			var opsMock = index.OperationsMock().Evaluate(rule);
 
-			context.Result.IsSuccess.Should().Be(expectedSuccess);
-			context.Result.Index.Index.Should().Be(expectedSuccess ? expectedMatch.Length : 0);
-			context.ConcatTokens().Should().Be(expectedMatch);
+			opsMock.Result.IsSuccess.Should().Be(expectedSuccess);
+			opsMock.Result.Index.Index.Should().Be(expectedSuccess ? expectedMatch.Length : 0);
+			opsMock.ConcatTokens().Should().Be(expectedMatch);
 		}
 
 		private Repeat CreateARepeatedRule(int min = 0, int max = -1)

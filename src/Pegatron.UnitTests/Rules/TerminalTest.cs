@@ -50,33 +50,32 @@ namespace Pegatron.UnitTests.Rules
 			var successSet = new HashSet<int>(successIndices);
 			var index = new TokenStream(new CharacterLexer(text)).Start();
 			var rule = new Terminal("TEST", "A");
+			RuleOperationsMock opsMock;
 
 			while (!index.Get().IsEndOfStream)
 			{
-				var context = new RuleContextMock(index);
-				rule.Evaluate(context);
+				opsMock = index.OperationsMock().Evaluate(rule);
 
 				if (successSet.Contains(index.Index))
 				{
-					context.Result.IsSuccess.Should().BeTrue();
-					context.Result.Index.Index.Should().Be(index.Index + 1);
-					context.Tokens.Count.Should().Be(1);
-					context.Tokens.All(t => t.Value == "A").Should().BeTrue();
+					opsMock.Result.IsSuccess.Should().BeTrue();
+					opsMock.Result.Index.Index.Should().Be(index.Index + 1);
+					opsMock.Tokens.Count.Should().Be(1);
+					opsMock.Tokens.All(t => t.Value == "A").Should().BeTrue();
 				}
 				else
 				{
-					context.Result.IsSuccess.Should().BeFalse();
-					context.Result.Index.Index.Should().Be(index.Index);
-					context.Tokens.Count.Should().Be(0);
+					opsMock.Result.IsSuccess.Should().BeFalse();
+					opsMock.Result.Index.Index.Should().Be(index.Index);
+					opsMock.Tokens.Count.Should().Be(0);
 				}
 
 				index = index.Next();
 			}
 
-			var eosContext = new RuleContextMock(index);
-			rule.Evaluate(eosContext);
-			eosContext.Result.IsSuccess.Should().BeFalse();
-			eosContext.Tokens.Count.Should().Be(0);
+			opsMock = index.OperationsMock().Evaluate(rule);
+			opsMock.Result.IsSuccess.Should().BeFalse();
+			opsMock.Tokens.Count.Should().Be(0);
 		}
 
 		[Test]
@@ -93,12 +92,11 @@ namespace Pegatron.UnitTests.Rules
 
 			while (!index.Get().IsEndOfStream)
 			{
-				var context = new RuleContextMock(index);
-				rule.Evaluate(context);
+				var opsMock = index.OperationsMock().Evaluate(rule);
 
-				if (context.Result.IsSuccess)
+				if (opsMock.Result.IsSuccess)
 				{
-					result.Add(context.Tokens.Single().Value!);
+					result.Add(opsMock.Tokens.Single().Value!);
 				}
 
 				index = index.Next();

@@ -31,28 +31,24 @@ namespace Pegatron.UnitTests.Rules
 			var stream = new TokenStream(new CharacterLexer(text));
 			var rule = new AnyTerminal("TEST");
 			TokenStreamIndex index;
-			RuleContextMock context;
+			RuleOperationsMock opsMock;
 
 			for (int i = 0; i < text.Length; i++)
 			{
 				index = new TokenStreamIndex(stream, i);
-				context = new RuleContextMock(index);
+				opsMock = index.OperationsMock().Evaluate(rule);
 
-				rule.Evaluate(context);
-
-				context.Result.IsSuccess.Should().BeTrue();
-				context.Result.Index.Index.Should().Be(i + 1);
-				context.ConcatTokens().Should().Be(text.Substring(i, 1));
+				opsMock.Result.IsSuccess.Should().BeTrue();
+				opsMock.Result.Index.Index.Should().Be(i + 1);
+				opsMock.ConcatTokens().Should().Be(text.Substring(i, 1));
 			}
 
 			index = new TokenStreamIndex(stream, text.Length);
-			context = new RuleContextMock(index);
+			opsMock = index.OperationsMock().Evaluate(rule);
 
-			rule.Evaluate(context);
-
-			context.Result.IsSuccess.Should().BeFalse();
-			context.Result.Index.Index.Should().Be(index.Index);
-			context.ConcatTokens().Should().Be(String.Empty);
+			opsMock.Result.IsSuccess.Should().BeFalse();
+			opsMock.Result.Index.Index.Should().Be(index.Index);
+			opsMock.ConcatTokens().Should().Be(String.Empty);
 		}
 	}
 }

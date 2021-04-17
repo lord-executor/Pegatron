@@ -31,14 +31,13 @@ namespace Pegatron.UnitTests.Rules
 		{
 			var stream = new TokenStream(new CharacterLexer(text));
 			var index = new TokenStreamIndex(stream, start);
-			var context = new RuleContextMock(index);
 			var rule = CreateAbbaRule();
 
-			rule.Evaluate(context);
+			var opsMock = index.OperationsMock().Evaluate(rule);
 
-			context.Result.IsSuccess.Should().Be(expectedMatch.Length == 4);
-			context.Result.Index.Index.Should().Be(context.Result.IsSuccess ? start + expectedMatch.Length : start);
-			context.ConcatTokens().Should().Be(expectedMatch);
+			opsMock.Result.IsSuccess.Should().Be(expectedMatch.Length == 4);
+			opsMock.Result.Index.Index.Should().Be(opsMock.Result.IsSuccess ? start + expectedMatch.Length : start);
+			opsMock.ConcatTokens().Should().Be(expectedMatch);
 		}
 
 		private Sequence CreateAbbaRule()

@@ -48,14 +48,13 @@ namespace Pegatron.UnitTests.Rules
 
 		private void AssertLookahead(IRule rule, TokenStreamIndex index, bool expectedSuccess)
 		{
-			var context = new RuleContextMock(index);
-			rule.Evaluate(context);
+			var opsMock = index.OperationsMock().Evaluate(rule);
 
-			context.Result.IsSuccess.Should().Be(expectedSuccess);
-			context.Result.Index.Index.Should().Be(0);
+			opsMock.Result.IsSuccess.Should().Be(expectedSuccess);
+			opsMock.Result.Index.Index.Should().Be(0);
 			if (expectedSuccess && rule is And)
 			{
-				context.ConcatTokens().Should().Be("A");
+				opsMock.ConcatTokens().Should().Be("A");
 			}
 		}
 
