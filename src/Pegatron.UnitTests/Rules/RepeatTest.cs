@@ -13,12 +13,16 @@ namespace Pegatron.UnitTests.Rules
 	public class RepeatTest
 	{
 		[Test]
-		public void ARepeated_ToString_ReturnsCorrectDisplayText()
+		[TestCase(0, -1, "{0,}")]
+		[TestCase(0, 5, "{0,5}")]
+		[TestCase(3, 12, "{3,12}")]
+		public void ARepeated_ToString_ReturnsCorrectDisplayText(int min, int max, string expectedSuffix)
 		{
-			var rule = CreateARepeatedRule();
+			var rule = CreateARepeatedRule(min, max);
 
 			rule.Name.Should().Be("TEST");
-			rule.ToString().Should().Be("A{0,-1}");
+			rule.ToDisplayText().Should().Be("TEST");
+			rule.ToString().Should().Be("A" + expectedSuffix);
 		}
 
 		[TestCaseSource(nameof(AnyNumberOfAs))]

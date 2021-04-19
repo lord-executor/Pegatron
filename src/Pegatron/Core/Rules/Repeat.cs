@@ -1,15 +1,16 @@
+using System;
 using System.Collections.Generic;
 
 namespace Pegatron.Core.Rules
 {
 	public class Repeat : IRule
 	{
-		public string Name { get; }
+		public string? Name { get; }
 		public IRuleRef Rule { get; }
 		private readonly int _min;
 		private readonly int _max;
 
-		public Repeat(string name, IRuleRef rule, int min = 0, int max = -1)
+		public Repeat(string? name, IRuleRef rule, int min = 0, int max = -1)
 		{
 			Name = name;
 			Rule = rule;
@@ -49,9 +50,7 @@ namespace Pegatron.Core.Rules
 
 		public override string ToString()
 		{
-			return string.IsNullOrEmpty(Rule.Name)
-				? $"({Rule}){{{_min},{_max}}}"
-				: $"{Rule.Name}{{{_min},{_max}}}";
+			return $"{Rule.DisplayText}{{{_min},{(_max < 0 ? string.Empty : _max)}}}";
 		}
 	}
 }

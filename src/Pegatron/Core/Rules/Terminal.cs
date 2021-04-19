@@ -6,19 +6,24 @@ namespace Pegatron.Core.Rules
 	public class Terminal : IRule
 	{
 		private readonly Predicate<IToken> _matcher;
-		private readonly string? _displayText;
+		private readonly string _defaultDisplayText;
 
-		public string Name { get; }
+		public string? Name { get; }
+
+		public Terminal(string tokenType)
+			: this(null, tokenType, token => token.Type == tokenType)
+		{
+		}
 
 		public Terminal(string name, string tokenType)
 			: this(name, tokenType, token => token.Type == tokenType)
 		{
 		}
 
-		public Terminal(string name, string? displayText, Predicate<IToken> matcher)
+		public Terminal(string? name, string? terminalName, Predicate<IToken> matcher)
 		{
 			Name = name;
-			_displayText = displayText;
+			_defaultDisplayText = $"T<{terminalName ?? "?"}>";
 			_matcher = matcher;
 		}
 
@@ -38,7 +43,7 @@ namespace Pegatron.Core.Rules
 
 		public override string ToString()
 		{
-			return _displayText ?? $"{nameof(Terminal)}(?)";
+			return _defaultDisplayText;
 		}
 	}
 }

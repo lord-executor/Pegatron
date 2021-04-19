@@ -7,7 +7,7 @@ namespace Pegatron
 	public class RuleRef<TNode> : IRuleRef<TNode>
 	{
 		private IRule? _rule;
-		public string Name => _rule?.Name ?? "UNRESOLVED";
+		public string? Name => _rule?.Name;
 		public string? RefName { get; private set; }
 		public Reducer<TNode>? Reducer { get; private set; }
 		public bool IsResolved => _rule != null;

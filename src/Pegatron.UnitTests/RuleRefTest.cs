@@ -16,7 +16,7 @@ namespace Pegatron.UnitTests
 			var ruleRef = new RuleRef<string>();
 
 			ruleRef.IsResolved.Should().BeFalse();
-			ruleRef.Name.Should().Be("UNRESOLVED");
+			ruleRef.Name.Should().BeNull();
 			ruleRef.RefName.Should().BeNull();
 			ruleRef.Reducer.Should().BeNull();
 		}
@@ -101,7 +101,7 @@ namespace Pegatron.UnitTests
 
 		private class MockRule : IRule
 		{
-			public string Name { get; }
+			public string? Name { get; }
 			public bool DidGrab { get; private set; }
 
 			public MockRule(string name)

@@ -16,7 +16,8 @@ namespace Pegatron.UnitTests.Rules
 			var rule = CreateNotARule();
 
 			rule.Name.Should().Be("TEST");
-			rule.ToString().Should().Be("!A");
+			rule.ToDisplayText().Should().Be("TEST");
+			rule.ToString().Should().Be("!T<A>");
 		}
 
 		[Test]
@@ -25,7 +26,7 @@ namespace Pegatron.UnitTests.Rules
 			var rule = CreateAndARule();
 
 			rule.Name.Should().Be("TEST");
-			rule.ToString().Should().Be("&A");
+			rule.ToString().Should().Be("&T<A>");
 		}
 
 		[Test]
@@ -60,13 +61,13 @@ namespace Pegatron.UnitTests.Rules
 
 		private Not CreateNotARule()
 		{
-			var ruleA = new SimpleRef(new Terminal("A", "A"));
+			var ruleA = new SimpleRef(new Terminal("A"));
 			return new Not("TEST", ruleA);
 		}
 
 		private And CreateAndARule()
 		{
-			var ruleA = new SimpleRef(new Terminal("A", "A"));
+			var ruleA = new SimpleRef(new Terminal("A"));
 			return new And("TEST", ruleA);
 		}
 	}

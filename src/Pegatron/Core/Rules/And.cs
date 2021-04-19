@@ -4,10 +4,10 @@ namespace Pegatron.Core.Rules
 {
 	public class And : IRule
 	{
-		public string Name { get; }
+		public string? Name { get; }
 		public IRuleRef Target { get; }
 
-		public And(string name, IRuleRef target)
+		public And(string? name, IRuleRef target)
 		{
 			Name = name;
 			Target = target;
@@ -28,7 +28,7 @@ namespace Pegatron.Core.Rules
 
 		public override string ToString()
 		{
-			return $"&{Target.Name ?? Target.ToString()}";
+			return $"&{Target.DisplayText}";
 		}
 	}
 }

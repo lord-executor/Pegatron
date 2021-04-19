@@ -10,7 +10,7 @@ namespace Pegatron.UnitTests.Mocks
 
 		public string RefName { get; }
 
-		public string Name => _rule.Name;
+		public string? Name => _rule.Name;
 
 		public SimpleRef(IRule rule)
 			: this(null, rule)
@@ -25,6 +25,11 @@ namespace Pegatron.UnitTests.Mocks
 		public IEnumerable<RuleOperation> Grab(IRuleContext ctx)
 		{
 			return _rule.Grab(ctx);
+		}
+
+		public override string ToString()
+		{
+			return _rule.ToString()!;
 		}
 	}
 }

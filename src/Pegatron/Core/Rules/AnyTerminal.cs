@@ -4,9 +4,9 @@ namespace Pegatron.Core.Rules
 {
 	public class AnyTerminal : IRule
 	{
-		public string Name { get; }
+		public string? Name { get; }
 
-		public AnyTerminal(string name)
+		public AnyTerminal(string? name)
 		{
 			Name = name;
 		}

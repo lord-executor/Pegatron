@@ -18,6 +18,7 @@ namespace Pegatron.UnitTests.Rules
 			var rule = new AnyTerminal("TEST");
 
 			rule.Name.Should().Be("TEST");
+			rule.ToDisplayText().Should().Be("TEST");
 			rule.ToString().Should().Be(".");
 		}
 

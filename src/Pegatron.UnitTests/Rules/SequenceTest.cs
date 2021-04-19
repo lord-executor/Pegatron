@@ -16,7 +16,8 @@ namespace Pegatron.UnitTests.Rules
 			var rule = CreateAbbaRule();
 
 			rule.Name.Should().Be("TEST");
-			rule.ToString().Should().Be("A B B A");
+			rule.ToDisplayText().Should().Be("TEST");
+			rule.ToString().Should().Be("(A B B A)");
 		}
 
 		[Test]

@@ -18,7 +18,8 @@ namespace Pegatron.UnitTests.Rules
 			var rule = CreateAOrBRule();
 
 			rule.Name.Should().Be("TEST");
-			rule.ToString().Should().Be("A | B");
+			rule.ToDisplayText().Should().Be("TEST");
+			rule.ToString().Should().Be("(T<A> | T<B>)");
 		}
 
 		[Test]
@@ -43,8 +44,8 @@ namespace Pegatron.UnitTests.Rules
 
 		private Choice CreateAOrBRule()
 		{
-			var ruleA = new SimpleRef(new Terminal("A", "A"));
-			var ruleB = new SimpleRef(new Terminal("B", "B"));
+			var ruleA = new SimpleRef(new Terminal("A"));
+			var ruleB = new SimpleRef(new Terminal("B"));
 			return new Choice("TEST", ruleA, ruleB);
 		}
 	}

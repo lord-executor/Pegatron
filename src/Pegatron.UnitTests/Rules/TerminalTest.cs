@@ -18,7 +18,8 @@ namespace Pegatron.UnitTests.Rules
 			var rule = new Terminal("TEST", "TOKEN_TYPE");
 
 			rule.Name.Should().Be("TEST");
-			rule.ToString().Should().Be("TOKEN_TYPE");
+			rule.ToDisplayText().Should().Be("TEST");
+			rule.ToString().Should().Be("T<TOKEN_TYPE>");
 		}
 
 		[Test]
@@ -27,7 +28,8 @@ namespace Pegatron.UnitTests.Rules
 			var rule = new Terminal("TEST", "DISPLAY_TEXT", token => true);
 
 			rule.Name.Should().Be("TEST");
-			rule.ToString().Should().Be("DISPLAY_TEXT");
+			rule.ToDisplayText().Should().Be("TEST");
+			rule.ToString().Should().Be("T<DISPLAY_TEXT>");
 		}
 
 		[Test]
@@ -36,7 +38,8 @@ namespace Pegatron.UnitTests.Rules
 			var rule = new Terminal("TEST", null, token => true);
 
 			rule.Name.Should().Be("TEST");
-			rule.ToString().Should().Contain(nameof(Terminal));
+			rule.ToDisplayText().Should().Be("TEST");
+			rule.ToString().Should().Be("T<?>");
 		}
 
 		[Test]

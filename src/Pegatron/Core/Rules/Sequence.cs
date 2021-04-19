@@ -5,10 +5,10 @@ namespace Pegatron.Core.Rules
 {
 	public class Sequence : IRule
 	{
-		public string Name { get; }
+		public string? Name { get; }
 		public IEnumerable<IRuleRef> Rules { get; }
 
-		public Sequence(string name, params IRuleRef[] rules)
+		public Sequence(string? name, params IRuleRef[] rules)
 		{
 			Name = name;
 			Rules = rules;
@@ -35,7 +35,7 @@ namespace Pegatron.Core.Rules
 
 		public override string ToString()
 		{
-			return Rules.Select(r => string.IsNullOrEmpty(r.Name) ? r.ToString() : r.Name).StrJoin(" ");
+			return $"({Rules.Select(r => r.DisplayText).StrJoin(" ")})";
 		}
 	}
 }
