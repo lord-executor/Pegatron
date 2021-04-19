@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Pegatron.Core
 {
@@ -9,6 +10,14 @@ namespace Pegatron.Core
 			if (arg < 0)
 			{
 				throw new ArgumentOutOfRangeException(name, $"'{name}' cannot be negative");
+			}
+		}
+
+		public static void NotNull(string name, [NotNull] object? value)
+		{
+			if (value == null)
+			{
+				throw new ArgumentException(name, $"'{name}' cannot be null");
 			}
 		}
 	}

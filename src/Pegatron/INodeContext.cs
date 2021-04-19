@@ -5,11 +5,11 @@ namespace Pegatron
 	public interface INodeContext<TNode>
 	{
 		int Count { get; }
-		bool Has(string name);
-		TNode Get(string name);
+		bool Has(string refName);
+		TNode Get(string refName);
 		TNode Get(int index);
-		TNode MaybeGet(string name);
-		TNode MaybeGet(int index);
+		TNode? MaybeGet(string refName);
+		TNode? MaybeGet(int index);
 		IEnumerable<TNode> GetAll();
 	}
 }
