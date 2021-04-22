@@ -6,7 +6,7 @@ using System.Linq;
 namespace Pegatron.UnitTests.Parsing
 {
 	[TestFixture]
-	public class ParserTestSimpleGrammar
+	public class ParserSimpleGrammarTest
 	{
 		[Test]
 		[TestCase("AURRX", "main[A choose[U] R R X]")]
