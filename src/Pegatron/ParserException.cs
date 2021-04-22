@@ -26,7 +26,8 @@ namespace Pegatron
 
 		public ParserExceptionId Id { get; }
 
-		public ParserException(ParserExceptionId ParserExceptionId, params object[] args) : base(string.Format(_messages[ParserExceptionId], args))
+		public ParserException(ParserExceptionId ParserExceptionId, params object[] args)
+			: base(string.Format(_messages[ParserExceptionId], args))
 		{
 			Id = ParserExceptionId;
 		}

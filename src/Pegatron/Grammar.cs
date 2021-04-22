@@ -47,7 +47,7 @@ namespace Pegatron
 			{
 				if (!_definedRules.ContainsKey(kvp.Key))
 				{
-					throw new InvalidOperationException($"Cannot resolve rule {kvp.Key}. It was never defined");
+					throw new GrammarException(GrammarExceptionId.GrammarContainsUnresolvedRule, kvp.Key);
 				}
 
 				var ruleRef = _definedRules[kvp.Key];

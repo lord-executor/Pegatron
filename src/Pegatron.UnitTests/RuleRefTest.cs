@@ -3,7 +3,6 @@ using NUnit.Framework;
 using Pegatron.Core;
 using Pegatron.UnitTests.Mocks;
 using System;
-using System.Collections.Generic;
 
 namespace Pegatron.UnitTests
 {
@@ -99,21 +98,16 @@ namespace Pegatron.UnitTests
 			clone.Reducer.Should().Be(reducer);
 		}
 
-		private class MockRule : IRule
+		[Test]
+		public void RuleRef_ResolveWithRule_PointsToTargetRule()
 		{
-			public string? Name { get; }
-			public bool DidGrab { get; private set; }
+			var ruleName = "TEST";
+			var mockRule = new MockRule(ruleName);
+			var ruleRef = new RuleRef<string>();
 
-			public MockRule(string name)
-			{
-				Name = name;
-			}
-
-			public IEnumerable<RuleOperation> Grab(IRuleContext ctx)
-			{
-				DidGrab = true;
-				yield break;
-			}
+			ruleRef.Name.Should().BeNull();
+			ruleRef.Resolve(new RuleRef<string>(mockRule));
+			ruleRef.Name.Should().Be(ruleName);
 		}
 	}
 }
