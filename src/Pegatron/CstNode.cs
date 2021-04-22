@@ -24,31 +24,12 @@ namespace Pegatron
 			Children = Enumerable.Empty<CstNode>();
 		}
 
-		public void Render(TextWriter writer, int indentLvl)
-		{
-			var indent = Enumerable.Repeat("  ", indentLvl).StrJoin("");
-			if (Children == null)
-			{
-				writer.WriteLine($"{indent}{Name}({Value})");
-			}
-			else
-			{
-				if (Name != null)
-				{
-					writer.WriteLine($"{indent}{Name}");
-				}
-				foreach (var c in Children)
-				{
-					c.Render(writer, indentLvl + 1);
-				}
-			}
-		}
-
 		public override string ToString()
 		{
 			using (var writer = new StringWriter())
 			{
-				Render(writer, 0);
+				var renderer = new CstNodeRenderer();
+				renderer.Render(writer, this);
 				return writer.ToString();
 			}
 		}
