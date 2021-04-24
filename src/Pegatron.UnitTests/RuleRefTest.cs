@@ -18,6 +18,7 @@ namespace Pegatron.UnitTests
 			ruleRef.Name.Should().BeNull();
 			ruleRef.RefName.Should().BeNull();
 			ruleRef.Reducer.Should().BeNull();
+			ruleRef.ToDisplayText().Should().Be("UNDEFINED");
 		}
 
 		[Test]
@@ -28,6 +29,7 @@ namespace Pegatron.UnitTests
 			ruleRef.As(nameof(RuleRef_As_SetsRefName));
 
 			ruleRef.RefName.Should().Be(nameof(RuleRef_As_SetsRefName));
+			ruleRef.ToDisplayText().Should().Be($"UNDEFINED => {nameof(RuleRef_As_SetsRefName)}");
 		}
 
 		[Test]
@@ -39,6 +41,7 @@ namespace Pegatron.UnitTests
 			ruleRef.ReduceWith(reducer);
 
 			ruleRef.Reducer.Should().Be(reducer);
+			ruleRef.ToDisplayText().Should().Be("UNDEFINED");
 		}
 
 		[Test]
@@ -65,6 +68,7 @@ namespace Pegatron.UnitTests
 
 			ruleRef.IsResolved.Should().BeTrue();
 			ruleRef.Name.Should().Be(nameof(MockRule));
+			ruleRef.ToDisplayText().Should().Be(nameof(MockRule));
 		}
 
 		[Test]
@@ -108,6 +112,7 @@ namespace Pegatron.UnitTests
 			ruleRef.Name.Should().BeNull();
 			ruleRef.Resolve(new RuleRef<string>(mockRule));
 			ruleRef.Name.Should().Be(ruleName);
+			ruleRef.ToDisplayText().Should().Be(ruleName);
 		}
 	}
 }

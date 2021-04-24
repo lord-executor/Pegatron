@@ -8,6 +8,7 @@ namespace Pegatron
 	{
 		private IRule? _rule;
 		public string? Name => _rule?.Name;
+		public string DisplayText => ToString()!;
 		public string? RefName { get; private set; }
 		public Reducer<TNode>? Reducer { get; private set; }
 		public bool IsResolved => _rule != null;
@@ -65,14 +66,11 @@ namespace Pegatron
 
 		public override string? ToString()
 		{
-			if (_rule == null)
-			{
-				return Name;
-			}
+			var ruleText = _rule?.ToDisplayText() ?? "UNDEFINED";
 
 			return string.IsNullOrEmpty(RefName)
-				? _rule.ToString()
-				: $"({_rule}) => {RefName}";
+				? ruleText
+				: $"{ruleText} => {RefName}";
 		}
 	}
 }
