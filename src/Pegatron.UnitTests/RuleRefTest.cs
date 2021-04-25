@@ -64,10 +64,12 @@ namespace Pegatron.UnitTests
 		[Test]
 		public void RuleRef_WithRule_WrapsTargetRule()
 		{
-			var ruleRef = new RuleRef<string>(new MockRule(nameof(MockRule)));
+			var mockRule = new MockRule(nameof(MockRule));
+			var ruleRef = new RuleRef<string>(mockRule);
 
 			ruleRef.IsResolved.Should().BeTrue();
 			ruleRef.Name.Should().Be(nameof(MockRule));
+			ruleRef.Rule.Should().Be(mockRule);
 			ruleRef.ToDisplayText().Should().Be(nameof(MockRule));
 		}
 
@@ -95,10 +97,11 @@ namespace Pegatron.UnitTests
 				.As(nameof(RuleRef_CloneWithRule_PointsToSameTargetRuleAndReducer))
 				.ReduceWith(reducer);
 
-			var clone = ruleRef.CloneRule();
+			var clone = (RuleRef<string>)ruleRef.CloneRule();
 
 			clone.RefName.Should().BeNull();
 			clone.Name.Should().Be(ruleName);
+			clone.Rule.Should().Be(mockRule);
 			clone.Reducer.Should().Be(reducer);
 		}
 
@@ -112,6 +115,7 @@ namespace Pegatron.UnitTests
 			ruleRef.Name.Should().BeNull();
 			ruleRef.Resolve(new RuleRef<string>(mockRule));
 			ruleRef.Name.Should().Be(ruleName);
+			ruleRef.Rule.Should().Be(mockRule);
 			ruleRef.ToDisplayText().Should().Be(ruleName);
 		}
 	}

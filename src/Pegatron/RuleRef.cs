@@ -6,17 +6,17 @@ namespace Pegatron
 {
 	public class RuleRef<TNode> : IRuleRef<TNode>
 	{
-		private IRule? _rule;
-		public string? Name => _rule?.Name;
-		public RuleType RuleType => _rule?.RuleType ?? RuleType.SingleMatch;
+		internal IRule? Rule { get; private set; }
+		public string? Name => Rule?.Name;
+		public RuleType RuleType => Rule?.RuleType ?? RuleType.SingleMatch;
 		public string DisplayText => ToString()!;
 		public string? RefName { get; private set; }
 		public Reducer<TNode>? Reducer { get; private set; }
-		public bool IsResolved => _rule != null;
+		public bool IsResolved => Rule != null;
 
 		public RuleRef(IRule rule)
 		{
-			_rule = rule;
+			Rule = rule;
 		}
 
 		public RuleRef()
@@ -29,7 +29,7 @@ namespace Pegatron
 			{
 				throw new InvalidOperationException("Only fully resolved rule refs can be executed");
 			}
-			return _rule!.Grab(ctx);
+			return Rule!.Grab(ctx);
 		}
 
 		public IRuleRef<TNode> As(string refName)
@@ -46,7 +46,7 @@ namespace Pegatron
 
 		public void Resolve(RuleRef<TNode> parent)
 		{
-			_rule = parent._rule;
+			Rule = parent.Rule;
 			Reducer = Reducer ?? parent.Reducer;
 		}
 
@@ -59,7 +59,7 @@ namespace Pegatron
 			{
 				throw new InvalidOperationException("Only fully resolved rule refs can be cloned");
 			}
-			var refClone = new RuleRef<TNode>(_rule!);
+			var refClone = new RuleRef<TNode>(Rule!);
 			// we keep the same reducer, but the RefName is reset
 			refClone.ReduceWith(Reducer);
 			return refClone;
@@ -67,7 +67,7 @@ namespace Pegatron
 
 		public override string? ToString()
 		{
-			var ruleText = _rule?.ToDisplayText() ?? "UNDEFINED";
+			var ruleText = Rule?.ToDisplayText() ?? "UNDEFINED";
 
 			return string.IsNullOrEmpty(RefName)
 				? ruleText

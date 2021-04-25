@@ -31,6 +31,8 @@ namespace Pegatron.Core
 				{
 					throw new LexerException(LexerExceptionId.MissingEosToken);
 				}
+				// finish off the iterator
+				_enumerator.MoveNext();
 				IsCompleted = true;
 			}
 
