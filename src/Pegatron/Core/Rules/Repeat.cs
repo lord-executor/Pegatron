@@ -6,6 +6,7 @@ namespace Pegatron.Core.Rules
 	public class Repeat : IRule
 	{
 		public string? Name { get; }
+		public RuleType RuleType => RuleType.MultiMatch;
 		public IRuleRef Rule { get; }
 		private readonly int _min;
 		private readonly int _max;

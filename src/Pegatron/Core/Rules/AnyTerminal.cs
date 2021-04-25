@@ -5,6 +5,7 @@ namespace Pegatron.Core.Rules
 	public class AnyTerminal : IRule
 	{
 		public string? Name { get; }
+		public RuleType RuleType => RuleType.SingleMatch;
 
 		public AnyTerminal(string? name)
 		{

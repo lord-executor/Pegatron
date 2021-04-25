@@ -6,6 +6,7 @@ namespace Pegatron.Core.Rules
 	public class Sequence : IRule
 	{
 		public string? Name { get; }
+		public RuleType RuleType => RuleType.MultiMatch;
 		public IEnumerable<IRuleRef> Rules { get; }
 
 		public Sequence(string? name, params IRuleRef[] rules)

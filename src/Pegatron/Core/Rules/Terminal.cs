@@ -9,6 +9,7 @@ namespace Pegatron.Core.Rules
 		private readonly string _defaultDisplayText;
 
 		public string? Name { get; }
+		public RuleType RuleType => RuleType.SingleMatch;
 
 		public Terminal(string tokenType)
 			: this(null, tokenType, token => token.Type == tokenType)

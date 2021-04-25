@@ -8,6 +8,7 @@ namespace Pegatron
 	{
 		private IRule? _rule;
 		public string? Name => _rule?.Name;
+		public RuleType RuleType => _rule?.RuleType ?? RuleType.SingleMatch;
 		public string DisplayText => ToString()!;
 		public string? RefName { get; private set; }
 		public Reducer<TNode>? Reducer { get; private set; }

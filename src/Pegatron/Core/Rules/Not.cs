@@ -5,6 +5,7 @@ namespace Pegatron.Core.Rules
 	public class Not : IRule
 	{
 		public string? Name { get; }
+		public RuleType RuleType => RuleType.SingleMatch;
 		public IRuleRef Target { get; }
 
 		public Not(string? name, IRuleRef target)

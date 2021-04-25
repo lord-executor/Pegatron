@@ -6,6 +6,7 @@ namespace Pegatron.Core.Rules
 	public class Choice : IRule
 	{
 		public string? Name { get; }
+		public RuleType RuleType => RuleType.SingleMatch;
 		public IEnumerable<IRuleRef> Rules { get; }
 
 		public Choice(string? name, params IRuleRef[] rules)

@@ -6,6 +6,7 @@ namespace Pegatron
 	public interface IRule
 	{
 		string? Name { get; }
+		RuleType RuleType { get; }
 		IEnumerable<RuleOperation> Grab(IRuleContext ctx);
 
 		public string DisplayText => Name ?? ToString()!;

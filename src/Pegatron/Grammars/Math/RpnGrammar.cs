@@ -1,3 +1,4 @@
+using Pegatron.Core;
 using Pegatron.Grammars.Math.Ast;
 using System;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace Pegatron.Grammars.Math
 							Ref("expr").As("value"),
 							Ref("op").As("op")
 						).ReduceWith(ChainLink)
-					).As("body").ReduceWith(Collection)).ReduceWith(Chain),
+					).As("body")).ReduceWith(Chain),
 				Ref("atom")
 			);
 
@@ -40,14 +41,14 @@ namespace Pegatron.Grammars.Math
 
 		public override Node DefaultReducer(IRule rule, INodeContext<Node> page)
 		{
-			if (page.Has("main") || page.Count == 1)
+			if (rule.RuleType == RuleType.SingleMatch)
 			{
 				var node = page.MaybeGet("main") ?? page.Get(0);
 				return node;
 			}
 			else
 			{
-				return Collection(rule, page);
+				return new CollectionNode(page.GetAll());
 			}
 		}
 
@@ -57,11 +58,6 @@ namespace Pegatron.Grammars.Math
 		}
 
 		#region Reducers
-
-		public Node Collection(IRule rule, INodeContext<Node> page)
-		{
-			return new CollectionNode(page.GetAll());
-		}
 
 		private Node Chain(IRule rule, INodeContext<Node> page)
 		{

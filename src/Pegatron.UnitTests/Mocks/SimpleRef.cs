@@ -11,6 +11,7 @@ namespace Pegatron.UnitTests.Mocks
 		public string RefName { get; }
 
 		public string? Name => _rule.Name;
+		public RuleType RuleType => _rule.RuleType;
 
 		public SimpleRef(IRule rule)
 			: this(null, rule)

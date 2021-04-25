@@ -5,6 +5,7 @@ namespace Pegatron.Core.Rules
 	public class And : IRule
 	{
 		public string? Name { get; }
+		public RuleType RuleType => RuleType.SingleMatch;
 		public IRuleRef Target { get; }
 
 		public And(string? name, IRuleRef target)

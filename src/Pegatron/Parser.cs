@@ -136,6 +136,7 @@ namespace Pegatron
 
 			public Reducer<TNode> Reducer => (_, _) => throw new NotImplementedException();
 			public string Name => "NULL";
+			public RuleType RuleType => RuleType.SingleMatch;
 			public string? RefName => null;
 			public RuleResult? Result { get; private set; }
 

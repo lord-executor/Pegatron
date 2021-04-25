@@ -13,6 +13,7 @@ namespace Pegatron.UnitTests.Mocks
 	public class MockRule : IRule
 	{
 		public string? Name { get; }
+		public RuleType RuleType => RuleType.SingleMatch;
 		public MockRuleBehavior Behavior { get; }
 		public bool DidGrab { get; private set; }
 
