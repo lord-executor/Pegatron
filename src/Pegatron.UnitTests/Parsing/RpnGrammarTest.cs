@@ -84,6 +84,18 @@ namespace Pegatron.UnitTests.Parsing
 			visitor.Invoking(v => v.Visit(new CollectionNode(Enumerable.Empty<Node>()))).Should().Throw<ArgumentException>();
 		}
 
+		[Test]
+		[TestCase("1 2 3 4 5 * + / -", "(1 - (2 / (3 + (4 * 5))))")]
+		[TestCase("2 2 + 3 3 * + thirteen /", "(((2 + 2) + (3 * 3)) / thirteen)")]
+		public void InfixRenderer_WithValidExpressions_FormatsCorrectly(string expression, string expectedInfixRepresentation)
+		{
+			var root = Parse(expression);
+			var visitor = new InfixRenderer();
+
+			var r = visitor.Visit(root);
+			visitor.Visit(root).Should().Be(expectedInfixRepresentation);
+		}
+
 		private Node Parse(string expression)
 		{
 			var lexer = new Lexer(new StringReader(expression));
