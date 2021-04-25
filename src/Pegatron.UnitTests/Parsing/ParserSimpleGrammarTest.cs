@@ -53,12 +53,12 @@ namespace Pegatron.UnitTests.Parsing
 			// main   := A choose R{2,5} .
 			// choose := U | V
 			grammar.Sequence("main",
-				grammar.Terminal("A"),
+				grammar.TerminalType("A"),
 				grammar.Choice("choose",
-					grammar.Terminal("U"),
-					grammar.Terminal("V")
+					grammar.TerminalValue("U"),
+					grammar.TerminalValue("V")
 				),
-				grammar.Repeat(null, grammar.Terminal("R"), 2, 5),
+				grammar.Repeat(null, grammar.TerminalType("R"), 2, 5),
 				grammar.Any(null)
 			);
 

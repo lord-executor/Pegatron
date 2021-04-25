@@ -11,16 +11,16 @@ namespace Pegatron.Grammars.Math
 		{
 			// atom    :=  IDENTIFIER | NUMBER
 			this.Choice("atom",
-				this.Terminal(TokenType.Identifier.ToString())
+				this.Terminal(TokenType.Identifier)
 					.ReduceWith(Atom(tokenNode => new Variable(tokenNode.Token.Value!))),
-				this.Terminal(TokenType.Number.ToString())
+				this.Terminal(TokenType.Number)
 					.ReduceWith(Atom(tokenNode => new Number(decimal.Parse(tokenNode.Token.Value!))))
 			);
 
 			// op      :=  ('+' | '-' | '*' | '/')
 			this.Choice("op",
-				this.Terminal(TokenType.AdditiveOperator.ToString()),
-				this.Terminal(TokenType.MultiplicativeOperator.ToString())
+				this.Terminal(TokenType.AdditiveOperator),
+				this.Terminal(TokenType.MultiplicativeOperator)
 			);
 
 			// expr    :=  atom (expr op)+ | atom

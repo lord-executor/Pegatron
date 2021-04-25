@@ -1,22 +1,30 @@
+using Pegatron.Core;
 using Pegatron.Core.Rules;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pegatron
 {
 	public static class GrammarBuilderExtensions
 	{
-		public static IRuleRef<TNode> Terminal<TNode>(this IGrammarBuilder<TNode> grammar, string terminalName, Predicate<IToken> tokenMatcher, string? name = null)
+
+		public static IRuleRef<TNode> Terminal<TNode>(this IGrammarBuilder<TNode> grammar, ITokenMatcher matcher, string? name = null)
 		{
-			return grammar.DefineRule(name, new Terminal(name, terminalName, tokenMatcher));
+			return grammar.DefineRule(name, new Terminal(name, matcher));
 		}
 
-		public static IRuleRef<TNode> Terminal<TNode>(this IGrammarBuilder<TNode> grammar, string tokenType, string? name = null)
+		public static IRuleRef<TNode> Terminal<TNode, TEnum>(this IGrammarBuilder<TNode> grammar, TEnum tokenType, string? name = null)
+			where TEnum : System.Enum
+		{
+			return grammar.DefineRule(name, new Terminal(name, tokenType.ToString()));
+		}
+
+		public static IRuleRef<TNode> TerminalType<TNode>(this IGrammarBuilder<TNode> grammar, string tokenType, string? name = null)
 		{
 			return grammar.DefineRule(name, new Terminal(name, tokenType));
+		}
+
+		public static IRuleRef<TNode> TerminalValue<TNode>(this IGrammarBuilder<TNode> grammar, string value, string? name = null)
+		{
+			return grammar.DefineRule(name, new Terminal(name, new TokenValueMatcher(value)));
 		}
 
 		public static IRuleRef<TNode> Sequence<TNode>(this IGrammarBuilder<TNode> grammar, string? name, params IRuleRef[] rules)

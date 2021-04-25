@@ -12,7 +12,7 @@ namespace Pegatron.UnitTests
 		public void Grammar_WithoutStartRule_ThrowsExceptionOnStart()
 		{
 			var grammar = new AdHocGrammar();
-			grammar.Terminal("A", "start");
+			grammar.TerminalType("A", "start");
 
 			grammar.Invoking(g => g.Start()).Should().Throw<GrammarException>().Where(e => e.Id == GrammarExceptionId.StartRuleNotDefined);
 		}
@@ -21,7 +21,7 @@ namespace Pegatron.UnitTests
 		public void Grammar_WithStartRule_ReturnsStartRefOnStart()
 		{
 			var grammar = new AdHocGrammar();
-			grammar.Terminal("A", "start");
+			grammar.TerminalType("A", "start");
 			grammar.StartWith("start");
 
 			var ruleRef = grammar.Start();

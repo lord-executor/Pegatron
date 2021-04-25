@@ -23,9 +23,9 @@ namespace Pegatron.UnitTests.Rules
 		}
 
 		[Test]
-		public void TerminalWithCustomMatcher_ToString_ReturnsDisplayText()
+		public void TerminalWithPredicateMatcher_ToString_ReturnsDisplayText()
 		{
-			var rule = new Terminal("TEST", "DISPLAY_TEXT", token => true);
+			var rule = new Terminal("TEST", new TokenPredicateMatcher("DISPLAY_TEXT", token => true));
 
 			rule.Name.Should().Be("TEST");
 			rule.ToDisplayText().Should().Be("TEST");
@@ -33,9 +33,9 @@ namespace Pegatron.UnitTests.Rules
 		}
 
 		[Test]
-		public void TerminalWithCustomMatcherNoDisplayText_ToString_ReturnsDefaultText()
+		public void TerminalWithPredicateMatcherNoDisplayText_ToString_ReturnsDefaultText()
 		{
-			var rule = new Terminal("TEST", null, token => true);
+			var rule = new Terminal("TEST", new TokenPredicateMatcher(token => true));
 
 			rule.Name.Should().Be("TEST");
 			rule.ToDisplayText().Should().Be("TEST");
@@ -90,7 +90,7 @@ namespace Pegatron.UnitTests.Rules
 		public void TerminalWithCustomMatcher_SucceedsAndFails_Correctly(string text, string expectedResult)
 		{
 			var index = new TokenStream(new CharacterLexer(text)).Start();
-			var rule = new Terminal("TEST", "UPPER", t => Char.IsUpper((t.Value ?? "_"), 0));
+			var rule = new Terminal("TEST", new TokenPredicateMatcher("UPPER", t => Char.IsUpper((t.Value ?? "_"), 0)));
 			var result = new List<string>();
 
 			while (!index.Get().IsEndOfStream)
