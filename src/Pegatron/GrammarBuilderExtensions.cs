@@ -1,5 +1,7 @@
 using Pegatron.Core;
 using Pegatron.Core.Rules;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Pegatron
 {
@@ -32,7 +34,17 @@ namespace Pegatron
 			return grammar.DefineRule(name, new Sequence(name, rules));
 		}
 
+		public static IRuleRef<TNode> Sequence<TNode>(this IGrammarBuilder<TNode> grammar, string? name, IEnumerable<IRuleRef> rules)
+		{
+			return grammar.DefineRule(name, new Sequence(name, rules));
+		}
+
 		public static IRuleRef<TNode> Choice<TNode>(this IGrammarBuilder<TNode> grammar, string? name, params IRuleRef[] rules)
+		{
+			return grammar.DefineRule(name, new Choice(name, rules));
+		}
+
+		public static IRuleRef<TNode> Choice<TNode>(this IGrammarBuilder<TNode> grammar, string? name, IEnumerable<IRuleRef> rules)
 		{
 			return grammar.DefineRule(name, new Choice(name, rules));
 		}
@@ -50,6 +62,11 @@ namespace Pegatron
 		public static IRuleRef<TNode> OneOrMore<TNode>(this IGrammarBuilder<TNode> grammar, string? name, IRuleRef rule)
 		{
 			return grammar.DefineRule(name, new Repeat(name, rule, 1, -1));
+		}
+
+		public static IRuleRef<TNode> Optional<TNode>(this IGrammarBuilder<TNode> grammar, string? name, IRuleRef rule)
+		{
+			return grammar.DefineRule(name, new Repeat(name, rule, 0, 1));
 		}
 
 		public static IRuleRef<TNode> Any<TNode>(this IGrammarBuilder<TNode> grammar, string? name)

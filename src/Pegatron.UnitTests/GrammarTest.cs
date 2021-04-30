@@ -26,7 +26,7 @@ namespace Pegatron.UnitTests
 
 			var ruleRef = grammar.Start();
 			ruleRef.Should().NotBeNull();
-			ruleRef.RefName.Should().BeNull();
+			ruleRef.RefName.Should().Be("start");
 			ruleRef.Name.Should().Be("start");
 		}
 

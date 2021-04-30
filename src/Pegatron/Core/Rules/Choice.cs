@@ -9,7 +9,7 @@ namespace Pegatron.Core.Rules
 		public RuleType RuleType => RuleType.SingleMatch;
 		public IEnumerable<IRuleRef> Rules { get; }
 
-		public Choice(string? name, params IRuleRef[] rules)
+		public Choice(string? name, IEnumerable<IRuleRef> rules)
 		{
 			Name = name;
 			Rules = rules;

@@ -28,7 +28,7 @@ namespace Pegatron
 		{
 			if (_definedRules.ContainsKey(name))
 			{
-				return _definedRules[name].CloneRule();
+				return _definedRules[name].CloneRule().As(name);
 			}
 
 			if (!_unresolvedRules.ContainsKey(name))
@@ -38,7 +38,7 @@ namespace Pegatron
 
 			var ruleRef = new RuleRef<TNode>();
 			_unresolvedRules[name].Add(ruleRef);
-			return ruleRef;
+			return ruleRef.As(name);
 		}
 
 		public void StartWith(string name)

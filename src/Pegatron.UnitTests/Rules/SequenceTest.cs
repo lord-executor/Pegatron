@@ -45,7 +45,7 @@ namespace Pegatron.UnitTests.Rules
 		{
 			var ruleA = new SimpleRef(new Terminal("A", "A"));
 			var ruleB = new SimpleRef(new Terminal("B", "B"));
-			return new Sequence("TEST", ruleA, ruleB, ruleB, ruleA);
+			return new Sequence("TEST", EnumSequence.Of(ruleA, ruleB, ruleB, ruleA));
 		}
 	}
 }

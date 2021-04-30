@@ -9,7 +9,7 @@ namespace Pegatron.Core.Rules
 		public RuleType RuleType => RuleType.MultiMatch;
 		public IEnumerable<IRuleRef> Rules { get; }
 
-		public Sequence(string? name, params IRuleRef[] rules)
+		public Sequence(string? name, IEnumerable<IRuleRef> rules)
 		{
 			Name = name;
 			Rules = rules;
