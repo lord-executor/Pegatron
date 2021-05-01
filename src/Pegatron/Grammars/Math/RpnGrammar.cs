@@ -43,7 +43,7 @@ namespace Pegatron.Grammars.Math
 		{
 			if (rule.RuleType == RuleType.SingleMatch)
 			{
-				var node = page.MaybeGet("main") ?? page.Get(0);
+				var node = page.Main().Single();
 				return node;
 			}
 			else
@@ -61,16 +61,16 @@ namespace Pegatron.Grammars.Math
 
 		private Node Chain(IRule rule, INodeContext<Node> page)
 		{
-			var head = page.Get("head");
-			var body = (CollectionNode)page.Get("body");
+			var head = page.Get("head").Single();
+			var body = page.Get("body").Single<CollectionNode>();
 
 			return new BinaryChain(head, body.Nodes.OfType<BinaryChainLink>());
 		}
 
 		private Node ChainLink(IRule rule, INodeContext<Node> page)
 		{
-			var op = (TokenNode)page.Get("op");
-			var value = page.Get("value");
+			var op = page.Get("op").Single<TokenNode>();
+			var value = page.Get("value").Single();
 			return new BinaryChainLink(op, value);
 		}
 

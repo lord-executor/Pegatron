@@ -11,17 +11,12 @@ namespace Pegatron.Core
 
 		public bool Has(string refName)
 		{
-			return _children.Where(item => item.refName == refName).Count() == 1;
+			return _children.Any(item => item.refName == refName);
 		}
 
-		public TNode Get(string refName)
+		public NodeContextValue<TNode> Get(string refName)
 		{
-			return _children.Single(item => item.refName == refName).node;
-		}
-
-		public TNode? MaybeGet(string refName)
-		{
-			return _children.SingleOrDefault(item => item.refName == refName).node;
+			return new NodeContextValue<TNode>(_children.Where(item => item.refName == refName).Select(item => item.node).ToList());
 		}
 
 		public TNode Get(int index)
@@ -29,14 +24,9 @@ namespace Pegatron.Core
 			return _children[index].node;
 		}
 
-		public TNode? MaybeGet(int index)
+		public NodeContextValue<TNode> GetAll()
 		{
-			return _children.Count > index ? _children[index].node : default(TNode);
-		}
-
-		public IEnumerable<TNode> GetAll()
-		{
-			return _children.Select(item => item.node);
+			return new NodeContextValue<TNode>(_children.Select(item => item.node).ToList());
 		}
 
 		public TNode Add(string? refName, TNode node)
