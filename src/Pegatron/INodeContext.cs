@@ -1,11 +1,7 @@
-using System.Collections.Generic;
-
 namespace Pegatron
 {
 	public interface INodeContext<TNode>
 	{
-		public static string MainKey = "main";
-
 		int Count { get; }
 		bool Has(string refName);
 		NodeContextValue<TNode> Get(string refName);
@@ -15,11 +11,14 @@ namespace Pegatron
 
 	public static class NodeContextExtensions
 	{
-		public static NodeContextValue<TNode> Main<TNode>(this INodeContext<TNode> context)
+		public static bool HasLift<TNode>(this INodeContext<TNode> context)
 		{
-			return context.Has(INodeContext<TNode>.MainKey)
-				? context.Get(INodeContext<TNode>.MainKey)
-				: new NodeContextValue<TNode>(new List<TNode>() { context.Get(0) });
+			return context.Has(IRuleRef.LiftRefName);
+		}
+
+		public static NodeContextValue<TNode> GetLift<TNode>(this INodeContext<TNode> context)
+		{
+			return context.Get(IRuleRef.LiftRefName);
 		}
 	}
 }

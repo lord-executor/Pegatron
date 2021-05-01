@@ -71,7 +71,7 @@ namespace Pegatron
 
 			return string.IsNullOrEmpty(RefName)
 				? ruleText
-				: $"{ruleText} => {RefName}";
+				: $"{ruleText} #{RefName}";
 		}
 	}
 }

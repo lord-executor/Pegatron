@@ -29,7 +29,7 @@ namespace Pegatron.UnitTests
 			ruleRef.As(nameof(RuleRef_As_SetsRefName));
 
 			ruleRef.RefName.Should().Be(nameof(RuleRef_As_SetsRefName));
-			ruleRef.ToDisplayText().Should().Be($"UNDEFINED => {nameof(RuleRef_As_SetsRefName)}");
+			ruleRef.ToDisplayText().Should().Be($"UNDEFINED #{nameof(RuleRef_As_SetsRefName)}");
 		}
 
 		[Test]

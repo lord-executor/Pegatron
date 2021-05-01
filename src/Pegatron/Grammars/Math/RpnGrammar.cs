@@ -42,9 +42,14 @@ namespace Pegatron.Grammars.Math
 
 		public override IEnumerable<Node> DefaultReducer(IRule rule, INodeContext<Node> page)
 		{
+			if (page.HasLift())
+			{
+				return page.GetLift();
+			}
+
 			if (rule.RuleType == RuleType.SingleMatch)
 			{
-				return page.Main();
+				return page.GetAll();
 			}
 
 			return EnumSequence.Of(new CollectionNode(page.GetAll()));

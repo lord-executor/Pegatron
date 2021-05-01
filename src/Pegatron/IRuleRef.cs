@@ -4,6 +4,8 @@ namespace Pegatron
 {
 	public interface IRuleRef : IRule
 	{
+		public static string LiftRefName = "!";
+
 		string? RefName { get; }
 	}
 
@@ -19,6 +21,11 @@ namespace Pegatron
 		public static IRuleRef<TNode> ReduceWith<TNode>(this IRuleRef<TNode> ruleRef, SingleReducer<TNode> reducer)
 		{
 			return ruleRef.ReduceWith((rule, page) => EnumSequence.Of(reducer(rule, page)));
+		}
+
+		public static IRuleRef<TNode> Lift<TNode>(this IRuleRef<TNode> ruleRef)
+		{
+			return ruleRef.As(IRuleRef.LiftRefName);
 		}
 	}
 }
