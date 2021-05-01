@@ -122,8 +122,10 @@ namespace Pegatron.Grammars.Peg
 		{
 			var name = page.Get("name").Single<Value>().Text;
 			var definition = page.Get("rule").Single<ProtoRule>();
-
 			definition.RuleName = name;
+
+			RefNamePropagation(definition);
+
 			return definition;
 		}
 
@@ -202,7 +204,7 @@ namespace Pegatron.Grammars.Peg
 
 		private INode MakeRange(IRule rule, INodeContext<INode> page)
 		{
-			var node = page.GetLift().Single();
+			var node = page.Get(0);
 			if (node is Ast.Range)
 			{
 				return node;
@@ -233,7 +235,9 @@ namespace Pegatron.Grammars.Peg
 		private INode MakeReference(IRule rule, INodeContext<INode> page)
 		{
 			var ruleName = ((Value)page.Get(0)).Text ?? string.Empty;
-			return new ProtoRule(nameof(Ref), (grammar, rule) => grammar.Ref(ruleName));
+			var result = new ProtoRule(nameof(Ref), (grammar, rule) => grammar.Ref(ruleName));
+			result.RuleName = ruleName;
+			return result;
 		}
 
 		private INode TerminalType(IRule rule, INodeContext<INode> page)
@@ -251,6 +255,41 @@ namespace Pegatron.Grammars.Peg
 		private INode TerminalAny(IRule rule, INodeContext<INode> page)
 		{
 			return new ProtoRule(nameof(AnyTerminal), (grammar, rule) => grammar.Any(rule.RuleName));
+		}
+
+		private string? RefNamePropagation(ProtoRule rule, int level = 0)
+		{
+			foreach (var child in rule.Children)
+			{
+				var name = RefNamePropagation(child, level + 1);
+				if (level > 0 && name != null)
+				{
+					if (rule.RefName != null)
+					{
+						throw new Exception($"Cannot propagate ref name inside of named RuleRef. {rule.DisplayText} is already named {rule.RefName}");
+					}
+
+					rule.RefName = name;
+				}
+			}
+
+			if (level > 0)
+			{
+				var namedChildren = rule.Children.Where(r => r.RefName != null).ToList();
+				if (namedChildren.Count > 1)
+				{
+					throw new Exception($"Cannot propagate multiple ref names inside of {rule.DisplayText}");
+				}
+
+				if (namedChildren.Count == 1)
+				{
+					var name = namedChildren.Single().RefName;
+					namedChildren.Single().RefName = IRuleRef.LiftRefName;
+					return name;
+				}
+			}
+
+			return null;
 		}
 	}
 }

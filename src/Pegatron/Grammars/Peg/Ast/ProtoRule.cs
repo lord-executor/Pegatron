@@ -43,7 +43,12 @@ namespace Pegatron.Grammars.Peg.Ast
 		public IRuleRef<INode> Create(IGrammarBuilder<INode> grammar)
 		{
 			ArgAssert.NotNull(nameof(Factory), Factory);
-			return Factory(grammar, this);
+			var ruleRef = Factory(grammar, this);
+			if (RefName != null)
+			{
+				ruleRef.As(RefName);
+			}
+			return ruleRef;
 		}
 	}
 }
