@@ -2,6 +2,8 @@ using Pegatron.Core;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
 
 namespace Pegatron
 {
@@ -11,6 +13,8 @@ namespace Pegatron
 		private readonly Stack<RuleState<TNode>> _ruleStack = new Stack<RuleState<TNode>>();
 		public static IDebugHooks<TNode> DebugHooks { get; set; } = new NullDebugger<TNode>();
 		private RuleState<TNode> Current => _ruleStack.Peek();
+
+		private (RuleResult result, IRuleRef<TNode> rule)? _longestMatch;
 
 		public Parser(IGrammar<TNode> grammar)
 		{
@@ -42,11 +46,11 @@ namespace Pegatron
 			}
 			if (!nullRule.Result.IsSuccess)
 			{
-				throw new ParserException(ParserExceptionId.ParsingFailed);
+				throw new ParserException(ParserExceptionId.ParsingFailed, CreateParserErrorMessage());
 			}
 			if (!nullRule.Result.Index.Get().IsEndOfStream)
 			{
-				throw new ParserException(ParserExceptionId.PartialMatch, nullRule.Result.Index.Index);
+				throw new ParserException(ParserExceptionId.PartialMatch, nullRule.Result.Index.Index, CreateParserErrorMessage());
 			}
 			if (startState.NodeContext.Count > 1)
 			{
@@ -82,6 +86,10 @@ namespace Pegatron
 
 					if (result.IsSuccess)
 					{
+						if (!_longestMatch.HasValue || _longestMatch.Value.result.Index.Index <= result.Index.Index)
+						{
+							_longestMatch = (result, state.Rule);
+						}
 						Current.NodeContext.Add(state.Rule.RefName, (state.Rule.Reducer ?? _grammar.DefaultReducer)(state.Rule, state.NodeContext));
 					}
 				}
@@ -89,6 +97,20 @@ namespace Pegatron
 
 			// Pops the last remaining state - of the NullRule
 			return _ruleStack.Pop();
+		}
+
+		private StringBuilder CreateParserErrorMessage()
+		{
+			var sb = new StringBuilder();
+			if (_longestMatch.HasValue)
+			{
+				var token = _longestMatch.Value.result.Index.Get();
+				sb.AppendLine($"Longest match at index {_longestMatch.Value.result.Index.Index}");
+				sb.AppendLine($"Line: {token.Line}, Position: {token.Start}");
+				sb.AppendLine($"Rule: {_longestMatch.Value.rule.DisplayText}");
+				sb.AppendLine($"{_longestMatch.Value.result.Match.Select(t => $"{t.Type}({t.Value})").StrJoin(" ")}");
+			}
+			return sb;
 		}
 
 		public class ParserCoroutines : IRuleOperations
