@@ -72,7 +72,7 @@ namespace Pegatron.UnitTests
 		public void Grammar_RefReduceWith_SetsReducerOnRuleRef()
 		{
 			var grammar = new AdHocGrammar();
-			Reducer<CstNode> reducer = (IRule rule, INodeContext<CstNode> page) => { return new CstNode("Dummy", "Dummy"); };
+			Reducer<CstNode> reducer = (IRule rule, INodeContext<CstNode> page) => EnumSequence.Of(new CstNode("Dummy", "Dummy"));
 			var ruleRef = grammar.Ref("test").ReduceWith(reducer);
 
 			ruleRef.Reducer.Should().Be(reducer);

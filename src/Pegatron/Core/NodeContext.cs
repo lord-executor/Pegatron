@@ -29,10 +29,17 @@ namespace Pegatron.Core
 			return new NodeContextValue<TNode>(_children.Select(item => item.node).ToList());
 		}
 
-		public TNode Add(string? refName, TNode node)
+		public void Add(string? refName, TNode node)
 		{
 			_children.Add((refName, node));
-			return node;
+		}
+
+		public void Add(string? refName, IEnumerable<TNode> nodes)
+		{
+			foreach (var n in nodes)
+			{
+				Add(refName, n);
+			}
 		}
 	}
 }

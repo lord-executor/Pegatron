@@ -36,7 +36,7 @@ namespace Pegatron.UnitTests
 		public void RuleRef_ReduceWith_SetsReducer()
 		{
 			var ruleRef = new RuleRef<string>();
-			Reducer<string> reducer = (IRule rule, INodeContext<string> page) => { return String.Empty; };
+			Reducer<string> reducer = (IRule rule, INodeContext<string> page) => EnumSequence.Of(String.Empty);
 
 			ruleRef.ReduceWith(reducer);
 
@@ -91,7 +91,7 @@ namespace Pegatron.UnitTests
 			var ruleName = "TEST";
 			var mockRule = new MockRule(ruleName);
 			var ruleRef = new RuleRef<string>(mockRule);
-			Reducer<string> reducer = (IRule rule, INodeContext<string> page) => { return String.Empty; };
+			Reducer<string> reducer = (IRule rule, INodeContext<string> page) => EnumSequence.Of(String.Empty);
 
 			ruleRef
 				.As(nameof(RuleRef_CloneWithRule_PointsToSameTargetRuleAndReducer))

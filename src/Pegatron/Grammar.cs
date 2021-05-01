@@ -61,8 +61,8 @@ namespace Pegatron
 			StartRule = Ref(name);
 		}
 
-		public abstract TNode TokenNodeFactory(IRule rule, IToken token);
+		public abstract IEnumerable<TNode> TerminalReducer(IRule rule, IToken token);
 
-		public abstract TNode DefaultReducer(IRule rule, INodeContext<TNode> page);
+		public abstract IEnumerable<TNode> DefaultReducer(IRule rule, INodeContext<TNode> page);
 	}
 }

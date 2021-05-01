@@ -1,6 +1,7 @@
 using Pegatron.Core;
 using Pegatron.Grammars.Math.Ast;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Pegatron.Grammars.Math
@@ -39,22 +40,19 @@ namespace Pegatron.Grammars.Math
 			StartWith("expr");
 		}
 
-		public override Node DefaultReducer(IRule rule, INodeContext<Node> page)
+		public override IEnumerable<Node> DefaultReducer(IRule rule, INodeContext<Node> page)
 		{
 			if (rule.RuleType == RuleType.SingleMatch)
 			{
-				var node = page.Main().Single();
-				return node;
+				return page.Main();
 			}
-			else
-			{
-				return new CollectionNode(page.GetAll());
-			}
+
+			return EnumSequence.Of(new CollectionNode(page.GetAll()));
 		}
 
-		public override Node TokenNodeFactory(IRule rule, IToken token)
+		public override IEnumerable<Node> TerminalReducer(IRule rule, IToken token)
 		{
-			return new TokenNode(token);
+			return EnumSequence.Of(new TokenNode(token));
 		}
 
 		#region Reducers
@@ -74,7 +72,7 @@ namespace Pegatron.Grammars.Math
 			return new BinaryChainLink(op, value);
 		}
 
-		private Reducer<Node> Atom(Func<TokenNode, Node> factory)
+		private SingleReducer<Node> Atom(Func<TokenNode, Node> factory)
 		{
 			return (rule, page) =>
 			{

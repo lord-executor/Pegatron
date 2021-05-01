@@ -125,7 +125,7 @@ namespace Pegatron
 				return () =>
 				{
 					DebugHooks.OnToken(_parser.Current, token);
-					_parser.Current.NodeContext.Add(rule.RefName, _parser._grammar.TokenNodeFactory(rule, token));
+					_parser.Current.NodeContext.Add(rule.RefName, _parser._grammar.TerminalReducer(rule, token));
 				};
 			}
 		}
