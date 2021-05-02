@@ -14,7 +14,7 @@ namespace Pegatron
 		public static IDebugHooks<TNode> DebugHooks { get; set; } = new NullDebugger<TNode>();
 		private RuleState<TNode> Current => _ruleStack.Peek();
 
-		private (RuleResult result, IRuleRef<TNode> rule)? _longestMatch;
+		private (RuleState<TNode> State, RuleResult Result)? _longestMatch;
 
 		public Parser(IGrammar<TNode> grammar)
 		{
@@ -32,7 +32,7 @@ namespace Pegatron
 
 			// this is essentially a dummy state that serves ad the receiver of the reduced "root" rule node
 			var nullRule = new NullRule(startRule);
-			var startState = new RuleState<TNode>(nullRule, index, coroutines);
+			var startState = new RuleState<TNode>(nullRule, index, coroutines, parent: null);
 			_ruleStack.Push(startState);
 
 			ProcessStack();
@@ -86,9 +86,9 @@ namespace Pegatron
 
 					if (result.IsSuccess)
 					{
-						if (!_longestMatch.HasValue || _longestMatch.Value.result.Index.Index <= result.Index.Index)
+						if (!_longestMatch.HasValue || _longestMatch.Value.Result.Index.Index <= result.Index.Index)
 						{
-							_longestMatch = (result, state.Rule);
+							_longestMatch = (state, result);
 						}
 						Current.NodeContext.Add(state.Rule.RefName, (state.Rule.Reducer ?? _grammar.DefaultReducer)(state.Rule, state.NodeContext));
 					}
@@ -104,11 +104,23 @@ namespace Pegatron
 			var sb = new StringBuilder();
 			if (_longestMatch.HasValue)
 			{
-				var token = _longestMatch.Value.result.Index.Get();
-				sb.AppendLine($"Longest match at index {_longestMatch.Value.result.Index.Index}");
-				sb.AppendLine($"Line: {token.Line}, Position: {token.Start}");
-				sb.AppendLine($"Rule: {_longestMatch.Value.rule.ToDisplayText(DisplayMode.Long)}");
-				sb.AppendLine($"{_longestMatch.Value.result.Match.Select(t => $"{t.Type}({t.Value})").StrJoin(" ")}");
+				var state = _longestMatch.Value.State;
+				var result = _longestMatch.Value.Result;
+				var token = result.Index.Get();
+				sb.AppendLine($"Longest match at index {result.Index.Index} with rule {state.Rule.ToDisplayText(DisplayMode.Long)}");
+				sb.AppendLine($"Line: {token.Line}, Position: {token.Start}, Value: {token.Value}");
+				sb.AppendLine($"Stack:");
+
+				var count = 0;
+				while (state != null)
+				{
+					var ruleDef = state.Rule.Name == null ? string.Empty : $"{state.Rule.Name} := ";
+					sb.AppendLine($"{count,2}: {ruleDef}{state.Rule.ToDisplayText(DisplayMode.Long)}");
+					sb.AppendLine($"    {state.RuleContext.Index.Until(result.Index).Select(t => $"{t.Type}({t.Value})").StrJoin(" ")}");
+
+					count++;
+					state = state.Parent;
+				}
 			}
 			return sb;
 		}
@@ -124,7 +136,7 @@ namespace Pegatron
 
 			public RuleOperation Call(IRuleRef rule, TokenStreamIndex index, out CoroutineResult<RuleResult> result)
 			{
-				var state = new RuleState<TNode>(rule, index, this);
+				var state = new RuleState<TNode>(rule, index, this, _parser._ruleStack.Peek());
 				result = state.Result;
 
 				return () =>

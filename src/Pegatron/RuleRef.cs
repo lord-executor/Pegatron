@@ -68,7 +68,7 @@ namespace Pegatron
 		{
 			var ruleText = Rule?.ToDisplayText(mode) ?? IRuleRef.UndefinedRef;
 
-			return string.IsNullOrEmpty(RefName)
+			return string.IsNullOrEmpty(RefName) || RefName == Rule?.Name
 				? ruleText
 				: $"{ruleText} #{RefName}";
 		}

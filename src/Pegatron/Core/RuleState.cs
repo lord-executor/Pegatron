@@ -13,12 +13,14 @@ namespace Pegatron.Core
 		public CoroutineResult<RuleResult> Result { get; set; }
 		public NodeContext<TNode> NodeContext { get; }
 		public IRuleContext RuleContext { get; }
+		public RuleState<TNode>? Parent { get; }
 
-		internal RuleState(IRuleRef rule, TokenStreamIndex index, IRuleOperations coroutines)
+		internal RuleState(IRuleRef rule, TokenStreamIndex index, IRuleOperations coroutines, RuleState<TNode>? parent)
 		{
 			Rule = (IRuleRef<TNode>)rule;
 			Result = new CoroutineResult<RuleResult>();
 			NodeContext = new NodeContext<TNode>();
+			Parent = parent;
 			RuleContext = new RuleContext(Rule, index, coroutines);
 			Iterator = rule.Grab(RuleContext).GetEnumerator();
 		}
