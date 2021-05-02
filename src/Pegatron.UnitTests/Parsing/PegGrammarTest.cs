@@ -22,10 +22,16 @@ namespace Pegatron.UnitTests.Parsing
 			DefineReferencedRulesAsDummies(grammar, rule);
 			var root = rule.Create(grammar);
 
+			var expandedRule = "(T<Identifier> #name T<':='> choice #rule)";
 			root.Name.Should().Be("definition");
-			root.ToDisplayText(DisplayMode.Long).Should().Be("(T<Identifier> #name T<':='> choice #rule)");
+			root.ToDisplayText(DisplayMode.Long).Should().Be(expandedRule);
 
-			rule.Should().NotBeNull();
+			var text = $"{root.Name}2 := {root.ToDisplayText(DisplayMode.Long)}";
+			rule = (ProtoRule)Parse(text);
+			root = rule.Create(grammar);
+
+			root.Name.Should().Be("definition2");
+			root.ToDisplayText(DisplayMode.Long).Should().Be(expandedRule);
 		}
 
 		[Test]

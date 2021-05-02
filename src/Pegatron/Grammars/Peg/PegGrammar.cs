@@ -91,9 +91,16 @@ namespace Pegatron.Grammars.Peg
 				this.TerminalValue(">")
 			).ReduceWith(TerminalType);
 
-			// terminalLiteral   := T<LITERAL>
-			this.Terminal(TokenType.Literal, "terminalLiteral")
-				.ReduceWith(TerminalLiteral);
+			// terminalLiteral   := T<LITERAL> | 'T' '<' T<LITERAL> #! '>'
+			this.Choice("terminalLiteral",
+				this.Terminal(TokenType.Literal),
+				this.Sequence(null,
+					this.TerminalValue("T"),
+					this.TerminalValue("<"),
+					this.Terminal(TokenType.Literal).Lift(),
+					this.TerminalValue(">")
+				)
+			).ReduceWith(TerminalLiteral);
 
 			// terminalAny       := '.'
 			this.TerminalValue(".", "terminalAny")
