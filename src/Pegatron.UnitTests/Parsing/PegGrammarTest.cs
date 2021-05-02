@@ -15,39 +15,24 @@ namespace Pegatron.UnitTests.Parsing
 	public class PegGrammarTest
 	{
 		[Test]
-		public void TEST()
+		[TestCaseSource("PegGrammarRules")]
+		public void DefinitionText_WithPegGrammar_CanParseItself(string ruleText, string name, string expandedRuleText)
 		{
-			var rule = (ProtoRule)Parse("definition        := T<Identifier>#name ':=' choice#rule");
 			var grammar = new DynamicPegGrammar();
-			DefineReferencedRulesAsDummies(grammar, rule);
+			var rule = (ProtoRule)Parse(ruleText);
+			DefineReferencedRulesAsDummies(grammar, rule, new HashSet<string>());
 			var root = rule.Create(grammar);
 
-			var expandedRule = "(T<Identifier> #name T<':='> choice #rule)";
-			root.Name.Should().Be("definition");
-			root.ToDisplayText(DisplayMode.Long).Should().Be(expandedRule);
+			root.Name.Should().Be(name);
+			root.ToDisplayText(DisplayMode.Long).Should().Be(expandedRuleText);
 
-			var text = $"{root.Name}2 := {root.ToDisplayText(DisplayMode.Long)}";
-			rule = (ProtoRule)Parse(text);
-			root = rule.Create(grammar);
+			// now we parse the long form to see if we still get the same result
+			//var text = $"{name}2 := {root.ToDisplayText(DisplayMode.Long)}";
+			//rule = (ProtoRule)Parse(text);
+			//root = rule.Create(grammar);
 
-			root.Name.Should().Be("definition2");
-			root.ToDisplayText(DisplayMode.Long).Should().Be(expandedRule);
-		}
-
-		[Test]
-		public void TEST2()
-		{
-			var rule = (ProtoRule)Parse("minmax            := '{' T<NUMBER> #min (',' T<NUMBER> #max)? '}'");
-			var grammar = new DynamicPegGrammar();
-			DefineReferencedRulesAsDummies(grammar, rule);
-			var root = rule.Create(grammar);
-
-			root.Name.Should().Be("minmax");
-			// note that the #max named ref has been propagated to the top level of the rule through the
-			// use of the lift (#!) ref name.
-			root.ToDisplayText(DisplayMode.Long).Should().Be("(T<'{'> T<NUMBER> #min (T<','> T<NUMBER> #!){0,1} #max T<'}'>)");
-
-			rule.Should().NotBeNull();
+			//root.Name.Should().Be($"{name}2");
+			//root.ToDisplayText(DisplayMode.Long).Should().Be(expandedRuleText);
 		}
 
 		private INode Parse(string expression)
@@ -59,16 +44,34 @@ namespace Pegatron.UnitTests.Parsing
 			return parser.Parse(new TokenStream(lexer).Start());
 		}
 
-		private void DefineReferencedRulesAsDummies(IGrammarBuilder<INode> grammar, ProtoRule rule)
+		private void DefineReferencedRulesAsDummies(IGrammarBuilder<INode> grammar, ProtoRule rule, HashSet<string> defined)
 		{
 			foreach (var child in rule.Children)
 			{
-				if (child.DisplayText == "Ref")
+				if (child.DisplayText == "Ref" && child.RuleName != null && !defined.Contains(child.RuleName))
 				{
+					defined.Add(child.RuleName);
 					grammar.DefineRule(child.RuleName, new MockRule(child.RuleName));
 				}
-				DefineReferencedRulesAsDummies(grammar, child);
+				DefineReferencedRulesAsDummies(grammar, child, defined);
 			}
+		}
+
+		private static IEnumerable<TestCaseData> PegGrammarRules()
+		{
+			yield return new TestCaseData(PegGrammar.Definition.DefinitionText, "definition", "(T<Identifier> #name T<':='> choice #rule)");
+			yield return new TestCaseData(PegGrammar.Choice.DefinitionText, "choice", "(sequence (T<'|'> sequence #!){0,})");
+			yield return new TestCaseData(PegGrammar.Sequence.DefinitionText, "sequence", "namedAtom{1,}");
+			yield return new TestCaseData(PegGrammar.NamedAtom.DefinitionText, "namedAtom", "");
+			yield return new TestCaseData(PegGrammar.AtomExpression.DefinitionText, "atomExpression", "");
+			yield return new TestCaseData(PegGrammar.RangeDef.DefinitionText, "range", "");
+			yield return new TestCaseData(PegGrammar.MinMaxDef.DefinitionText, "minmax", "(T<'{'> T<Number> #min (T<','> T<Number> #!){0,1} #max T<'}'>)");
+			yield return new TestCaseData(PegGrammar.Atom.DefinitionText, "atom", "");
+			yield return new TestCaseData(PegGrammar.RuleRefDef.DefinitionText, "ruleRef", "T<Identifier>");
+			yield return new TestCaseData(PegGrammar.Terminal.DefinitionText, "terminal", "");
+			yield return new TestCaseData(PegGrammar.TerminalType.DefinitionText, "terminalType", "");
+			yield return new TestCaseData(PegGrammar.TerminalLiteral.DefinitionText, "terminalLiteral", "(T<Literal> | (T<'T'> T<'<'> T<Literal> #! T<'>'>))");
+			yield return new TestCaseData(PegGrammar.TerminalAny.DefinitionText, "terminalAny", "(T<'T'> T<'<'> T<Identifier> #type T<'>'>)");
 		}
 
 		public class DynamicPegGrammar : Grammar<INode>
