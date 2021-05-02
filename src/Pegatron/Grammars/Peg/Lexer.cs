@@ -20,8 +20,8 @@ namespace Pegatron.Grammars.Peg
 				(new Regex(@"\G\s*(T)(?=<)"), (line, match) => TokenFromMatch(line, TokenType.Special, match)),
 				(new Regex(@"\G\s*([a-zA-Z_][a-zA-Z0-9_]*)"), (line, match) => TokenFromMatch(line, TokenType.Identifier, match)),
 				(new Regex(@"\G\s*(\d+)"), (line, match) => TokenFromMatch(line, TokenType.Number, match)),
-				(new Regex(@"\G\s*'((?:([^']|(?<=\\)')+))'"), (line, match) => TokenFromMatch(line, TokenType.Literal, match)),
-				(new Regex(@"\G\s*([|#?*+.,(){}<>&!]|:=)"), (line, match) => TokenFromMatch(line, TokenType.Special, match)),
+				(new Regex(@"\G\s*('(?:([^']|(?<=\\)')+)')"), (line, match) => TokenFromMatch(line, TokenType.Literal, match)),
+				(new Regex(@"\G\s*(:=|#!|[|#?*+.,(){}<>&!])"), (line, match) => TokenFromMatch(line, TokenType.Special, match)),
 			};
 		}
 

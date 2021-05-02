@@ -32,7 +32,7 @@ namespace Pegatron.UnitTests.Parsing
 			});
 
 			yield return new TestCaseData("'Hell\\'0 World' 42 '42'", new Token[] {
-				Token("Hell'0 World", TokenType.Literal), Token("42", TokenType.Number), Token("42", TokenType.Literal), Pegatron.Token.Eos
+				Token("'Hell'0 World'", TokenType.Literal), Token("42", TokenType.Number), Token("'42'", TokenType.Literal), Pegatron.Token.Eos
 			});
 
 			yield return new TestCaseData("expr    :=  atom (expr op)+ | atom", new Token[] {

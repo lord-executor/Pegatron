@@ -5,8 +5,8 @@ namespace Pegatron
 {
 	public abstract class Grammar<TNode> : IGrammar<TNode>, IGrammarBuilder<TNode>
 	{
-		private readonly IDictionary<string, RuleRef<TNode>> _definedRules = new Dictionary<string, RuleRef<TNode>>();
-		private readonly IDictionary<string, IList<RuleRef<TNode>>> _unresolvedRules = new Dictionary<string, IList<RuleRef<TNode>>>();
+		protected readonly IDictionary<string, RuleRef<TNode>> _definedRules = new Dictionary<string, RuleRef<TNode>>();
+		protected readonly IDictionary<string, IList<RuleRef<TNode>>> _unresolvedRules = new Dictionary<string, IList<RuleRef<TNode>>>();
 		public IRuleRef<TNode>? StartRule { get; private set; }
 
 		public IRuleRef<TNode> DefineRule(string? name, IRule rule)

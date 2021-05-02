@@ -79,7 +79,7 @@ namespace Pegatron.Grammars.Peg
 			{
 				grammar.Sequence("choice",
 					grammar.Ref("sequence"),
-					grammar.Optional(null, grammar.Sequence(null,
+					grammar.ZeroOrMore(null, grammar.Sequence(null,
 						grammar.TerminalValue("|"),
 						grammar.Ref("sequence").Lift()
 					))
@@ -130,19 +130,19 @@ namespace Pegatron.Grammars.Peg
 
 		public class NamedAtom : IGrammarRule<INode>
 		{
-			public static string DefinitionText => "namedAtom  :=  atomExpression #atom ('#' (T<Identifier> | '!') #name)?";
+			public static string DefinitionText => "namedAtom  :=  atomExpression #atom ('#!' | '#' T<Identifier>)? #name";
 
 			public void Register(IGrammarBuilder<INode> grammar)
 			{
 				grammar.Sequence("namedAtom",
 					grammar.Ref("atomExpression").As("atom"),
 					grammar.Optional(null,
-						grammar.Sequence(null,
-							grammar.TerminalValue("#"),
-							grammar.Choice(null,
-								grammar.Terminal(TokenType.Identifier),
-								grammar.TerminalValue("!")
-							).Lift())
+						grammar.Choice(null,
+							grammar.TerminalValue("#!"),
+							grammar.Sequence(null,
+								grammar.TerminalValue("#"),
+								grammar.Terminal(TokenType.Identifier)
+							))
 					).As("name")
 				).ReduceWith(Reduce);
 			}
@@ -152,8 +152,8 @@ namespace Pegatron.Grammars.Peg
 				if (page.Count > 1)
 				{
 					var atom = page.Get("atom").Single<ProtoRule>();
-					var name = page.Get("name").Single<Value>().Text;
-					atom.RefName = name;
+					var name = page.Get("name").Of<Value>().Select(v => v.Text).StrJoin(string.Empty);
+					atom.RefName = name.Substring(1);
 					return atom;
 				}
 				else
@@ -251,25 +251,28 @@ namespace Pegatron.Grammars.Peg
 
 		public class MinMaxDef : IGrammarRule<INode>
 		{
-			public static string DefinitionText => "minmax  :=  '{' T<Number> #min (',' T<Number> #max)? '}'";
+			public static string DefinitionText => "minmax  :=  '{' T<Number> #min ','? #sep T<Number>? #max '}'";
 
 			public void Register(IGrammarBuilder<INode> grammar)
 			{
 				grammar.Sequence("minmax",
 					grammar.TerminalValue("{"),
 					grammar.Terminal(TokenType.Number).As("min"),
-					grammar.Optional(null, grammar.Sequence(null,
-						grammar.TerminalValue(","),
-						grammar.Terminal(TokenType.Number).Lift(),
-						grammar.TerminalValue("}")
-					)).As("max")
+					grammar.Optional(null, grammar.TerminalValue(",")).As("sep"),
+					grammar.Optional(null, grammar.Terminal(TokenType.Number)).As("max"),
+					grammar.TerminalValue("}")
 				).ReduceWith(Reduce);
 			}
 
 			public INode Reduce(IRule rule, INodeContext<INode> page)
 			{
+				var hasSeparator = page.Get("sep").Optional() != null;
 				var min = int.Parse(page.Get("min").Single<Value>().Text ?? "0");
-				var max = int.Parse(page.Get("max").Single<Value>().Text ?? "0");
+				var max = int.Parse(page.Get("max").Optional<Value>()?.Text ?? "-1");
+				if (!hasSeparator)
+				{
+					max = min;
+				}
 				return new Ast.Range(min, max);
 			}
 		}
@@ -371,8 +374,8 @@ namespace Pegatron.Grammars.Peg
 
 			public INode Reduce(IRule rule, INodeContext<INode> page)
 			{
-				var value = ((Value)page.Get(0)).Text ?? string.Empty;
-				return new ProtoRule(nameof(TerminalLiteral), (grammar, rule) => grammar.TerminalValue(value, rule.RuleName));
+				var value = ((Value)page.Get(0)).Text ?? "''";
+				return new ProtoRule(nameof(TerminalLiteral), (grammar, rule) => grammar.TerminalValue(value.Substring(1, value.Length-2), rule.RuleName));
 			}
 		}
 
