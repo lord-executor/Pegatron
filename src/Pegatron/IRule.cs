@@ -14,6 +14,8 @@ namespace Pegatron
 
 	public interface IRule
 	{
+		public const string DebugExpression = "{this.ToDisplayText(DisplayMode.Definition)}";
+
 		string? Name { get; }
 		RuleType RuleType { get; }
 		IEnumerable<RuleOperation> Grab(IRuleContext ctx);
@@ -29,8 +31,13 @@ namespace Pegatron
 
 		public static string ToDisplayText(this IRule rule, DisplayMode mode)
 		{
+			if (rule is IRuleRef)
+			{
+				return rule.DisplayText(mode);
+			}
+
 			var builder = new StringBuilder();
-			var childMode = mode == DisplayMode.Recursive ? DisplayMode.Recursive : DisplayMode.Short;
+			var childMode = mode == DisplayMode.Recursive ? mode : DisplayMode.Short;
 
 			if (mode == DisplayMode.Definition && rule.Name != null)
 			{

@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Pegatron.Core.Rules
 {
+	[DebuggerDisplay(IRule.DebugExpression)]
 	public class Repeat : IRule
 	{
 		public string? Name { get; }

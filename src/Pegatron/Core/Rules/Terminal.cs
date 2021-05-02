@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Pegatron.Core.Rules
 {
+	[DebuggerDisplay(IRule.DebugExpression)]
 	public class Terminal : IRule
 	{
 		private readonly ITokenMatcher _matcher;

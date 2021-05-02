@@ -1,9 +1,11 @@
 using Pegatron.Core;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Pegatron
 {
+	[DebuggerDisplay(IRule.DebugExpression)]
 	public class RuleRef<TNode> : IRuleRef<TNode>
 	{
 		internal IRule? Rule { get; private set; }

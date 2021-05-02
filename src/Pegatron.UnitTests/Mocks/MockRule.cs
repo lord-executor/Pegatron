@@ -1,5 +1,6 @@
 using Pegatron.Core;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Pegatron.UnitTests.Mocks
 {
@@ -10,6 +11,7 @@ namespace Pegatron.UnitTests.Mocks
 		Failure,
 	}
 
+	[DebuggerDisplay(IRule.DebugExpression)]
 	public class MockRule : IRule
 	{
 		public string? Name { get; }

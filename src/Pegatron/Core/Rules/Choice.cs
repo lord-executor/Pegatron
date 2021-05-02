@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Pegatron.Core.Rules
 {
+	[DebuggerDisplay(IRule.DebugExpression)]
 	public class Choice : IRule
 	{
 		public string? Name { get; }

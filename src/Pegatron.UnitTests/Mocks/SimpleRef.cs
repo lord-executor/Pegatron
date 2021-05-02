@@ -1,9 +1,11 @@
 using Pegatron.Core;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Pegatron.UnitTests.Mocks
 {
+	[DebuggerDisplay(IRule.DebugExpression)]
 	public class SimpleRef : IRuleRef
 	{
 		private readonly IRule _rule;
