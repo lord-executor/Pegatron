@@ -34,9 +34,9 @@ namespace Pegatron.Core.Rules
 			yield return ctx.Success(current);
 		}
 
-		public override string ToString()
+		public string DisplayText(DisplayMode mode)
 		{
-			return $"({Rules.Select(r => r.DisplayText).StrJoin(" ")})";
+			return $"({Rules.Select(r => r.ToDisplayText(mode)).StrJoin(" ")})";
 		}
 	}
 }

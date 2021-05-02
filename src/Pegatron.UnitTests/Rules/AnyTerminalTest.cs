@@ -19,7 +19,7 @@ namespace Pegatron.UnitTests.Rules
 
 			rule.Name.Should().Be("TEST");
 			rule.ToDisplayText().Should().Be("TEST");
-			rule.ToString().Should().Be(".");
+			rule.ToDisplayText(DisplayMode.Long).Should().Be(".");
 		}
 
 		[Test]

@@ -26,7 +26,7 @@ namespace Pegatron.Core.Rules
 			}
 		}
 
-		public override string ToString()
+		public string DisplayText(DisplayMode mode)
 		{
 			return ".";
 		}

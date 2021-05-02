@@ -17,7 +17,7 @@ namespace Pegatron.UnitTests.Rules
 
 			rule.Name.Should().Be("TEST");
 			rule.ToDisplayText().Should().Be("TEST");
-			rule.ToString().Should().Be("!T<A>");
+			rule.ToDisplayText(DisplayMode.Long).Should().Be("!T<A>");
 		}
 
 		[Test]
@@ -26,7 +26,7 @@ namespace Pegatron.UnitTests.Rules
 			var rule = CreateAndARule();
 
 			rule.Name.Should().Be("TEST");
-			rule.ToString().Should().Be("&T<A>");
+			rule.ToDisplayText(DisplayMode.Long).Should().Be("&T<A>");
 		}
 
 		[Test]

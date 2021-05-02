@@ -41,5 +41,10 @@ namespace Pegatron.UnitTests.Mocks
 			DidGrab = true;
 			yield break;
 		}
+
+		public string DisplayText(DisplayMode mode)
+		{
+			return Name ?? "UNNAMED";
+		}
 	}
 }

@@ -5,6 +5,7 @@ namespace Pegatron
 	public interface IRuleRef : IRule
 	{
 		public static string LiftRefName = "!";
+		public static string UndefinedRef = "UNDEFINED";
 
 		string? RefName { get; }
 	}

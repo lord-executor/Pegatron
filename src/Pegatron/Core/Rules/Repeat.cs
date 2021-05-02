@@ -49,9 +49,9 @@ namespace Pegatron.Core.Rules
 			yield return ctx.Failure();
 		}
 
-		public override string ToString()
+		public string DisplayText(DisplayMode mode)
 		{
-			return $"{Rule.DisplayText}{{{_min},{(_max < 0 ? string.Empty : _max)}}}";
+			return $"{Rule.ToDisplayText(mode)}{{{_min},{(_max < 0 ? string.Empty : _max)}}}";
 		}
 	}
 }

@@ -19,7 +19,7 @@ namespace Pegatron.UnitTests.Rules
 
 			rule.Name.Should().Be("TEST");
 			rule.ToDisplayText().Should().Be("TEST");
-			rule.ToString().Should().Be("T<TOKEN_TYPE>");
+			rule.ToDisplayText(DisplayMode.Long).Should().Be("T<TOKEN_TYPE>");
 		}
 
 		[Test]
@@ -29,7 +29,7 @@ namespace Pegatron.UnitTests.Rules
 
 			rule.Name.Should().Be("TEST");
 			rule.ToDisplayText().Should().Be("TEST");
-			rule.ToString().Should().Be("T<DISPLAY_TEXT>");
+			rule.ToDisplayText(DisplayMode.Long).Should().Be("T<DISPLAY_TEXT>");
 		}
 
 		[Test]
@@ -39,7 +39,7 @@ namespace Pegatron.UnitTests.Rules
 
 			rule.Name.Should().Be("TEST");
 			rule.ToDisplayText().Should().Be("TEST");
-			rule.ToString().Should().Be("T<?>");
+			rule.ToDisplayText(DisplayMode.Long).Should().Be("T<?>");
 		}
 
 		[Test]

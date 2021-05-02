@@ -19,7 +19,7 @@ namespace Pegatron.UnitTests.Rules
 
 			rule.Name.Should().Be("TEST");
 			rule.ToDisplayText().Should().Be("TEST");
-			rule.ToString().Should().Be("(T<A> | T<B>)");
+			rule.ToDisplayText(DisplayMode.Long).Should().Be("(T<A> | T<B>)");
 		}
 
 		[Test]

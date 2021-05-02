@@ -78,7 +78,7 @@ namespace Pegatron
 					_ruleStack.Pop();
 					if (!state.Result.IsResolved)
 					{
-						throw new ParserException(ParserExceptionId.MissingResult, state.Rule.DisplayText);
+						throw new ParserException(ParserExceptionId.MissingResult, state.Rule.ToDisplayText(DisplayMode.Long));
 					}
 
 					var result = state.Result.Value;
@@ -107,7 +107,7 @@ namespace Pegatron
 				var token = _longestMatch.Value.result.Index.Get();
 				sb.AppendLine($"Longest match at index {_longestMatch.Value.result.Index.Index}");
 				sb.AppendLine($"Line: {token.Line}, Position: {token.Start}");
-				sb.AppendLine($"Rule: {_longestMatch.Value.rule.DisplayText}");
+				sb.AppendLine($"Rule: {_longestMatch.Value.rule.ToDisplayText(DisplayMode.Long)}");
 				sb.AppendLine($"{_longestMatch.Value.result.Match.Select(t => $"{t.Type}({t.Value})").StrJoin(" ")}");
 			}
 			return sb;
@@ -182,6 +182,11 @@ namespace Pegatron
 			public IRuleRef<TNode> ReduceWith(Reducer<TNode> reducer)
 			{
 				throw new NotImplementedException();
+			}
+
+			public string DisplayText(DisplayMode mode)
+			{
+				return Name;
 			}
 		}
 	}

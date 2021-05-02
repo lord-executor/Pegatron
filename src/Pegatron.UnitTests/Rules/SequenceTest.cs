@@ -17,7 +17,7 @@ namespace Pegatron.UnitTests.Rules
 
 			rule.Name.Should().Be("TEST");
 			rule.ToDisplayText().Should().Be("TEST");
-			rule.ToString().Should().Be("(A B B A)");
+			rule.ToDisplayText(DisplayMode.Long).Should().Be("(A B B A)");
 		}
 
 		[Test]

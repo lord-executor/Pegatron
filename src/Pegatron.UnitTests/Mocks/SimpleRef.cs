@@ -28,9 +28,9 @@ namespace Pegatron.UnitTests.Mocks
 			return _rule.Grab(ctx);
 		}
 
-		public override string ToString()
+		public string DisplayText(DisplayMode mode)
 		{
-			return _rule.ToString()!;
+			return _rule.ToDisplayText(mode);
 		}
 	}
 }

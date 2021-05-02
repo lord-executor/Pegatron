@@ -22,7 +22,7 @@ namespace Pegatron.UnitTests.Rules
 
 			rule.Name.Should().Be("TEST");
 			rule.ToDisplayText().Should().Be("TEST");
-			rule.ToString().Should().Be("A" + expectedSuffix);
+			rule.ToDisplayText(DisplayMode.Long).Should().Be("A" + expectedSuffix);
 		}
 
 		[TestCaseSource(nameof(AnyNumberOfAs))]

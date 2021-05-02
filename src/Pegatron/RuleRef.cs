@@ -9,7 +9,6 @@ namespace Pegatron
 		internal IRule? Rule { get; private set; }
 		public string? Name => Rule?.Name;
 		public RuleType RuleType => Rule?.RuleType ?? RuleType.SingleMatch;
-		public string DisplayText => ToString()!;
 		public string? RefName { get; private set; }
 		public Reducer<TNode>? Reducer { get; private set; }
 		public bool IsResolved => Rule != null;
@@ -65,9 +64,9 @@ namespace Pegatron
 			return refClone;
 		}
 
-		public override string? ToString()
+		public string DisplayText(DisplayMode mode)
 		{
-			var ruleText = Rule?.ToDisplayText() ?? "UNDEFINED";
+			var ruleText = Rule?.ToDisplayText(mode) ?? IRuleRef.UndefinedRef;
 
 			return string.IsNullOrEmpty(RefName)
 				? ruleText
