@@ -79,80 +79,80 @@ namespace Pegatron.UnitTests.Parsing
 		private static IEnumerable<TestCaseData> PegGrammarRules()
 		{
 			yield return new TestCaseData(
-				new PegGrammar.Definition(),
-				PegGrammar.Definition.DefinitionText,
+				new Definition(),
+				Definition.DefinitionText,
 				"definition",
 				"(T<Identifier> #name T<':='> choice #rule)"
 			);
 			yield return new TestCaseData(
-				new PegGrammar.Choice(),
-				PegGrammar.Choice.DefinitionText,
+				new Choice(),
+				Choice.DefinitionText,
 				"choice",
 				"(sequence (T<'|'> sequence #!){0,})"
 			);
 			yield return new TestCaseData(
-				new PegGrammar.Sequence(),
-				PegGrammar.Sequence.DefinitionText,
+				new Sequence(),
+				Sequence.DefinitionText,
 				"sequence",
 				"namedAtom{1,}"
 			);
 			yield return new TestCaseData(
-				new PegGrammar.NamedAtom(),
-				PegGrammar.NamedAtom.DefinitionText,
+				new NamedAtom(),
+				NamedAtom.DefinitionText,
 				"namedAtom",
 				"(atomExpression #atom (T<'#!'> | (T<'#'> T<Identifier>)){0,1} #name)"
 			);
 			yield return new TestCaseData(
-				new PegGrammar.AtomExpression(),
-				PegGrammar.AtomExpression.DefinitionText,
+				new AtomExpression(),
+				AtomExpression.DefinitionText,
 				"atomExpression",
 				"((T<'&'> | T<'!'>){0,1} #prefix atom range{0,1} #suffix)"
 			);
 			yield return new TestCaseData(
-				new PegGrammar.RangeDef(),
-				PegGrammar.RangeDef.DefinitionText,
+				new RangeDef(),
+				RangeDef.DefinitionText,
 				"range",
 				"(T<'*'> | T<'+'> | T<'?'> | minmax)"
 			);
 			yield return new TestCaseData(
-				new PegGrammar.MinMaxDef(),
-				PegGrammar.MinMaxDef.DefinitionText,
+				new MinMaxDef(),
+				MinMaxDef.DefinitionText,
 				"minmax",
 				"(T<'{'> T<Number> #min T<','>{0,1} #sep T<Number>{0,1} #max T<'}'>)"
 			);
 			yield return new TestCaseData(
-				new PegGrammar.Atom(),
-				PegGrammar.Atom.DefinitionText,
+				new Atom(),
+				Atom.DefinitionText,
 				"atom",
 				"(ruleRef | terminal | (T<'('> choice #! T<')'>))"
 			);
 			yield return new TestCaseData(
-				new PegGrammar.RuleRefDef(),
-				PegGrammar.RuleRefDef.DefinitionText,
+				new RuleRefDef(),
+				RuleRefDef.DefinitionText,
 				"ruleRef",
 				"T<Identifier>"
 			);
 			yield return new TestCaseData(
-				new PegGrammar.Terminal(),
-				PegGrammar.Terminal.DefinitionText,
+				new Terminal(),
+				Terminal.DefinitionText,
 				"terminal",
 				"(terminalType | terminalLiteral | terminalAny)"
 			);
 			yield return new TestCaseData(
-				new PegGrammar.TerminalType(),
-				PegGrammar.TerminalType.DefinitionText,
+				new TerminalType(),
+				TerminalType.DefinitionText,
 				"terminalType",
 				"(T<'T'> T<'<'> T<Identifier> #type T<'>'>)"
 			);
 			yield return new TestCaseData(
-				new PegGrammar.TerminalLiteral(),
-				PegGrammar.TerminalLiteral.DefinitionText,
+				new TerminalLiteral(),
+				TerminalLiteral.DefinitionText,
 				"terminalLiteral",
 				"(T<Literal> | (T<'T'> T<'<'> T<Literal> #! T<'>'>))"
 			);
 			yield return new TestCaseData(
-				new PegGrammar.TerminalAny(),
-				PegGrammar.TerminalAny.DefinitionText,
+				new TerminalAny(),
+				TerminalAny.DefinitionText,
 				"terminalAny",
 				"T<'.'>"
 			);
