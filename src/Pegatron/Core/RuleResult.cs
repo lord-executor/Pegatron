@@ -1,5 +1,8 @@
+using System.Diagnostics;
+
 namespace Pegatron.Core
 {
+	[DebuggerDisplay("IsSuccess: {IsSuccess} @ {Index.Index}")]
 	public class RuleResult
 	{
 		public bool IsSuccess { get; }

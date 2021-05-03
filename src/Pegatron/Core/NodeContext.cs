@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Pegatron.Core
 {
+	[DebuggerDisplay("Count = {Count}")]
 	public class NodeContext<TNode> : INodeContext<TNode>
 	{
 		private readonly IList<(string? refName, TNode node)> _children = new List<(string? refName, TNode node)>();

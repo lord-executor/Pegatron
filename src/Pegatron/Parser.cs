@@ -111,15 +111,12 @@ namespace Pegatron
 				sb.AppendLine($"Line: {token.Line}, Position: {token.Start}, Value: {token.Value}");
 				sb.AppendLine($"Stack:");
 
+				var debugView = new RuleState<TNode>.RuleStateDebugView(state);
 				var count = 0;
-				while (state != null)
+				foreach (var entry in debugView.StackTrace)
 				{
-					var ruleDef = state.Rule.Name == null ? string.Empty : $"{state.Rule.Name} := ";
-					sb.AppendLine($"{count,2}: {ruleDef}{state.Rule.ToDisplayText(DisplayMode.Long)}");
-					sb.AppendLine($"    {state.RuleContext.Index.Until(result.Index).Select(t => $"{t.Type}({t.Value})").StrJoin(" ")}");
-
-					count++;
-					state = state.Parent;
+					sb.AppendLine($"{count++,2}: {entry.Rule}");
+					sb.AppendLine($"    {entry.Stream}");
 				}
 			}
 			return sb;
