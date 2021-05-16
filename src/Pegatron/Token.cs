@@ -10,8 +10,6 @@ namespace Pegatron
 
 		public uint Start { get; init; }
 
-		public uint Length => (uint)(Value ?? string.Empty).Length;
-
 		public bool IsEndOfStream { get; }
 
 		public Token(string tokenType)

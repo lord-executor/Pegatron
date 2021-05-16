@@ -33,7 +33,7 @@ namespace Pegatron
 		public T? Optional<T>()
 			where T : TNode
 		{
-			return (T)Optional();
+			return (T?)Optional();
 		}
 
 		public IEnumerable<T> Of<T>()

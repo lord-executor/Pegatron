@@ -1,6 +1,7 @@
 using Pegatron.Core;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -165,6 +166,7 @@ namespace Pegatron
 		{
 			private readonly IRuleRef _root;
 
+			[ExcludeFromCodeCoverage]
 			public Reducer<TNode> Reducer => (_, _) => throw new NotImplementedException();
 			public string Name => "NULL";
 			public RuleType RuleType => RuleType.SingleMatch;
@@ -176,6 +178,7 @@ namespace Pegatron
 				_root = root;
 			}
 
+			[ExcludeFromCodeCoverage]
 			public IRuleRef<TNode> As(string refName)
 			{
 				throw new NotImplementedException();
@@ -188,6 +191,7 @@ namespace Pegatron
 				yield break;
 			}
 
+			[ExcludeFromCodeCoverage]
 			public IRuleRef<TNode> ReduceWith(Reducer<TNode> reducer)
 			{
 				throw new NotImplementedException();
