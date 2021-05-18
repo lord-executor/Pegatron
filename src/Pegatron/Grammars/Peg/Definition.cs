@@ -33,14 +33,14 @@ namespace Pegatron.Grammars.Peg
 			foreach (var child in rule.Children)
 			{
 				var name = RefNamePropagation(child, level + 1);
-				if (level > 0 && name != null)
+				if (name != null)
 				{
-					if (rule.RefName != null)
+					if (child.RefName != null)
 					{
-						throw new Exception($"Cannot propagate ref name inside of named RuleRef. {rule.DisplayText} is already named {rule.RefName}");
+						throw new Exception($"Cannot propagate ref name inside of named RuleRef. {child.DisplayText} is already named {child.RefName}");
 					}
 
-					rule.RefName = name;
+					child.RefName = name;
 				}
 			}
 

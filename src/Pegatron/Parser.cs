@@ -11,7 +11,7 @@ namespace Pegatron
 	public class Parser<TNode>
 	{
 		private readonly IGrammar<TNode> _grammar;
-		private readonly Stack<RuleState<TNode>> _ruleStack = new Stack<RuleState<TNode>>();
+		private Stack<RuleState<TNode>> _ruleStack = new Stack<RuleState<TNode>>();
 		public static IDebugHooks<TNode> DebugHooks { get; set; } = new NullDebugger<TNode>();
 		private RuleState<TNode> Current => _ruleStack.Peek();
 
@@ -24,6 +24,7 @@ namespace Pegatron
 
 		public TNode Parse(TokenStreamIndex index)
 		{
+			_ruleStack = new Stack<RuleState<TNode>>();
 			return Run(_grammar.Start(), index);
 		}
 
