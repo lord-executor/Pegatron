@@ -15,10 +15,5 @@ namespace Pegatron.Grammars.Peg
 				grammar.Ref("terminalAny")
 			);
 		}
-
-		public INode Reduce(IRule rule, INodeContext<INode> page)
-		{
-			throw new NotImplementedException();
-		}
 	}
 }

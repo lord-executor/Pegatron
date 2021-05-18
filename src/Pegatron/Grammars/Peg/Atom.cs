@@ -15,10 +15,5 @@ namespace Pegatron.Grammars.Peg
 				grammar.Sequence(null, grammar.TerminalValue("("), grammar.Ref("choice").Lift(), grammar.TerminalValue(")"))
 			);
 		}
-
-		public INode Reduce(IRule rule, INodeContext<INode> page)
-		{
-			throw new NotImplementedException();
-		}
 	}
 }

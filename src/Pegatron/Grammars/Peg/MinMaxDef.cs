@@ -20,7 +20,7 @@ namespace Pegatron.Grammars.Peg
 		public INode Reduce(IRule rule, INodeContext<INode> page)
 		{
 			var hasSeparator = page.Get("sep").Optional() != null;
-			var min = int.Parse(page.Get("min").Single<Value>().Text ?? "0");
+			var min = int.Parse(page.Get("min").Single<Value>().Text);
 			var max = int.Parse(page.Get("max").Optional<Value>()?.Text ?? "-1");
 			if (!hasSeparator)
 			{

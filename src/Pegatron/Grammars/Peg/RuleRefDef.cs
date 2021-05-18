@@ -14,7 +14,7 @@ namespace Pegatron.Grammars.Peg
 
 		public INode Reduce(IRule rule, INodeContext<INode> page)
 		{
-			var ruleName = ((Value)page.Get(0)).Text ?? string.Empty;
+			var ruleName = ((Value)page.Get(0)).Text;
 			var result = new ProtoRule("Ref", rule => rule.Ref(ruleName));
 			result.RuleName = ruleName;
 			return result;
