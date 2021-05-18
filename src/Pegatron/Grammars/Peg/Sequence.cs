@@ -21,7 +21,7 @@ namespace Pegatron.Grammars.Peg
 				return page.Get(0);
 			}
 
-			var result = new ProtoRule(nameof(Core.Rules.Sequence), (grammar, rule) => grammar.Sequence(rule.RuleName, rule.All(grammar)));
+			var result = new ProtoRule(nameof(Core.Rules.Sequence), rule => new Core.Rules.Sequence(rule.RuleName, rule.All()));
 			result.AddChildren(page.GetAll().Of<ProtoRule>());
 
 			return result;

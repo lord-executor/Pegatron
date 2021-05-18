@@ -1,3 +1,4 @@
+using Pegatron.Core.Rules;
 using Pegatron.Grammars.Peg.Ast;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,8 @@ namespace Pegatron.Grammars.Peg
 
 		private static readonly IDictionary<string, Func<ProtoRule>> _prefixMap = new Dictionary<string, Func<ProtoRule>>
 		{
-			["&"] = () => new ProtoRule(nameof(Core.Rules.And), (grammar, rule) => grammar.And(rule.RuleName, rule.Single(grammar))),
-			["!"] = () => new ProtoRule(nameof(Core.Rules.Not), (grammar, rule) => grammar.Not(rule.RuleName, rule.Single(grammar))),
+			["&"] = () => new ProtoRule(nameof(And), rule => new And(rule.RuleName, rule.Single())),
+			["!"] = () => new ProtoRule(nameof(Not), rule => new Not(rule.RuleName, rule.Single())),
 		};
 
 		public void Register(IGrammarBuilder<INode> grammar)
@@ -37,7 +38,7 @@ namespace Pegatron.Grammars.Peg
 
 			if (range != null)
 			{
-				result = new ProtoRule(nameof(Core.Rules.Repeat), (grammar, rule) => grammar.Repeat(rule.RuleName, rule.Single(grammar), range.Min, range.Max));
+				result = new ProtoRule(nameof(Repeat), rule =>  new Repeat(rule.RuleName, rule.Single(), range.Min, range.Max));
 				result.Children.Add(atom);
 				atom = result;
 			}

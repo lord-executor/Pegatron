@@ -1,3 +1,4 @@
+using Pegatron.Core;
 using Pegatron.Grammars.Peg.Ast;
 
 namespace Pegatron.Grammars.Peg
@@ -22,7 +23,7 @@ namespace Pegatron.Grammars.Peg
 		public INode Reduce(IRule rule, INodeContext<INode> page)
 		{
 			var value = ((Value)page.Get(0)).Text ?? "''";
-			return new ProtoRule(nameof(TerminalLiteral), (grammar, rule) => grammar.TerminalValue(value.Substring(1, value.Length - 2), rule.RuleName));
+			return new ProtoRule(nameof(TerminalLiteral), rule => new Core.Rules.Terminal(rule.RuleName, new TokenValueMatcher(value.Substring(1, value.Length - 2))));
 		}
 	}
 }

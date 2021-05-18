@@ -39,6 +39,11 @@ namespace Pegatron
 			return this;
 		}
 
+		IRuleRef IRuleRef.As(string refName)
+		{
+			return As(refName);
+		}
+
 		public IRuleRef<TNode> ReduceWith(Reducer<TNode>? reducer)
 		{
 			Reducer = reducer;

@@ -1,3 +1,4 @@
+using Pegatron.Core.Rules;
 using Pegatron.Grammars.Peg.Ast;
 
 namespace Pegatron.Grammars.Peg
@@ -14,7 +15,7 @@ namespace Pegatron.Grammars.Peg
 
 		public INode Reduce(IRule rule, INodeContext<INode> page)
 		{
-			return new ProtoRule(nameof(Core.Rules.AnyTerminal), (grammar, rule) => grammar.Any(rule.RuleName));
+			return new ProtoRule(nameof(AnyTerminal), rule => new AnyTerminal(rule.RuleName));
 		}
 	}
 }

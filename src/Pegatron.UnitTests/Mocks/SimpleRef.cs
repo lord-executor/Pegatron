@@ -34,5 +34,10 @@ namespace Pegatron.UnitTests.Mocks
 		{
 			return _rule.ToDisplayText(mode);
 		}
+
+		public IRuleRef As(string refName)
+		{
+			throw new InvalidOperationException();
+		}
 	}
 }

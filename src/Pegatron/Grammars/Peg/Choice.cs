@@ -25,7 +25,7 @@ namespace Pegatron.Grammars.Peg
 				return page.Get(0);
 			}
 
-			var result = new ProtoRule(nameof(Core.Rules.Choice), (grammar, rule) => grammar.Choice(rule.RuleName, rule.All(grammar)));
+			var result = new ProtoRule(nameof(Core.Rules.Choice), rule => new Core.Rules.Choice(rule.RuleName, rule.All()));
 			// filter out the "|" values
 			result.AddChildren(page.GetAll().Of<ProtoRule>());
 

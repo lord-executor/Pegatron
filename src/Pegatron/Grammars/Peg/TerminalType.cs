@@ -19,7 +19,7 @@ namespace Pegatron.Grammars.Peg
 		public INode Reduce(IRule rule, INodeContext<INode> page)
 		{
 			var type = page.Get("type").Single<Value>().Text ?? string.Empty;
-			return new ProtoRule(nameof(TerminalType), (grammar, rule) => grammar.TerminalType(type, rule.RuleName));
+			return new ProtoRule(nameof(TerminalType), rule => new Core.Rules.Terminal(rule.RuleName, type));
 		}
 	}
 }

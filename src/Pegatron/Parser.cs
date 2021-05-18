@@ -184,6 +184,12 @@ namespace Pegatron
 				throw new NotImplementedException();
 			}
 
+			[ExcludeFromCodeCoverage]
+			IRuleRef IRuleRef.As(string refName)
+			{
+				return As(refName);
+			}
+
 			public IEnumerable<RuleOperation> Grab(IRuleContext ctx)
 			{
 				yield return ctx.Call(_root, ctx.Index, out var result);

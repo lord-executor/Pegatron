@@ -8,12 +8,14 @@ namespace Pegatron
 		public static string UndefinedRef = "UNDEFINED";
 
 		string? RefName { get; }
+
+		IRuleRef As(string refName);
 	}
 
 	public interface IRuleRef<TNode> : IRuleRef
 	{
 		Reducer<TNode>? Reducer { get; }
-		IRuleRef<TNode> As(string refName);
+		new IRuleRef<TNode> As(string refName);
 		IRuleRef<TNode> ReduceWith(Reducer<TNode> reducer);
 	}
 
