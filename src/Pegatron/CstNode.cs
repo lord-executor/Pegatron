@@ -33,5 +33,16 @@ namespace Pegatron
 				return writer.ToString();
 			}
 		}
+
+		public static string Reduce(CstNode node)
+		{
+			var inner = node.Value == null
+				? node.Children.Select(c => Reduce(c)).Where(x => !string.IsNullOrEmpty(x)).StrJoin(" ")
+				: node.Value;
+
+			return node.Name == null
+				? inner
+				: $"{node.Name}[{inner}]";
+		}
 	}
 }

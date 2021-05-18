@@ -23,7 +23,7 @@ namespace Pegatron.UnitTests.Parsing
 			root.Should().NotBeNull();
 			root.Name.Should().Be("main");
 
-			ReduceCst(root).Should().Be(expectedReduction);
+			CstNode.Reduce(root).Should().Be(expectedReduction);
 		}
 
 		[Test]
@@ -65,24 +65,6 @@ namespace Pegatron.UnitTests.Parsing
 			grammar.StartWith("main");
 
 			return grammar;
-		}
-
-		private static string ReduceCst(CstNode node)
-		{
-			if (node.Name != null)
-			{
-				var inner = node.Value == null
-					? node.Children.Select(c => ReduceCst(c)).StrJoin(" ")
-					: node.Value;
-
-				return $"{node.Name}[{inner}]";
-			}
-			if (node.Value != null)
-			{
-				return node.Value;
-			}
-
-			return node.Children.Select(c => ReduceCst(c)).StrJoin(" ");
 		}
 	}
 }

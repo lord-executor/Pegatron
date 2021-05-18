@@ -1,13 +1,14 @@
 using Pegatron.Core;
 using Pegatron.Core.Rules;
+using Pegatron.Grammars.Peg.Ast;
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 
 namespace Pegatron
 {
 	public static class GrammarBuilderExtensions
 	{
-
 		public static IRuleRef<TNode> Terminal<TNode>(this IGrammarBuilder<TNode> grammar, ITokenMatcher matcher, string? name = null)
 		{
 			return grammar.DefineRule(name, new Terminal(name, matcher));
@@ -82,6 +83,16 @@ namespace Pegatron
 		public static IRuleRef<TNode> Not<TNode>(this IGrammarBuilder<TNode> grammar, string? name, IRuleRef target)
 		{
 			return grammar.DefineRule(name, new Not(name, target));
+		}
+
+		private static readonly Lazy<Parser<INode>> _pegParser = new Lazy<Parser<INode>>(() => new Parser<INode>(new Grammars.Peg.PegGrammar()));
+
+		public static IRuleRef<TNode> DefineRule<TNode>(this IGrammarBuilder<TNode> grammar, string ruleDefinition)
+		{
+			var lexer = new Grammars.Peg.Lexer(new StringReader(ruleDefinition));
+			var protoRule = (ProtoRule)_pegParser.Value.Parse(new TokenStream(lexer).Start());
+
+			return protoRule.Create(grammar);
 		}
 	}
 }
