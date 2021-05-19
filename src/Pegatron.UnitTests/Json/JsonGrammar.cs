@@ -11,7 +11,7 @@ namespace Pegatron.UnitTests.Json
 			this.DefineRule("value := object | array | primitive");
 			this.DefineRule("object := '{' properties? #props '}'")
 				.ReduceWith(ObjectReducer);
-			this.DefineRule("array := '[' (primitive #values (',' primitive #values)?)? ']'")
+			this.DefineRule("array := '[' (value #values (',' value #values)*)? ']'")
 				.ReduceWith(ArrayReducer);
 			this.DefineRule("primitive := T<String> | T<Number> | T<Boolean> | T<Null>");
 			this.DefineRule("properties := property #props (',' properties #props)?")

@@ -30,6 +30,24 @@ namespace Pegatron.UnitTests.Json
 		}
 
 		[Test]
+		[TestCase(@"[null]", JsonTokenType.Null)]
+		[TestCase(@"[true]", JsonTokenType.Boolean)]
+		[TestCase(@"[""foo""]", JsonTokenType.String)]
+		[TestCase(@"[42]", JsonTokenType.Number)]
+		public void JsonParse_WithSingleItemArray_Succeeds(string jsonText, JsonTokenType type)
+		{
+			var result = Parse(jsonText);
+
+			result.Should().NotBeNull();
+			result.Should().BeOfType<JsonArray>();
+
+			var array = (JsonArray)result;
+			array.Count.Should().Be(1);
+			array.Should().AllBeOfType<JsonPrimitive>();
+			array.OfType<JsonPrimitive>().All(p => p.ValueType == type);
+		}
+
+		[Test]
 		[TestCase(@"[null,null]", JsonTokenType.Null)]
 		[TestCase(@"[true,false]", JsonTokenType.Boolean)]
 		[TestCase(@"[""foo"", ""bar""]", JsonTokenType.String)]
@@ -75,6 +93,30 @@ namespace Pegatron.UnitTests.Json
 			(obj["value"] as JsonPrimitive)?.ValueType.Should().Be(Enum.Parse<JsonTokenType>((obj["type"] as JsonPrimitive)?.Text ?? string.Empty));
 		}
 
+		[Test]
+		[TestCase(@"{
+	""wrap"" : ""({0})"",
+	""children"": [
+		{ ""value"": 42 },
+		{ ""wrap"": ""->{0}<-"", ""children"": [
+			{ ""value"": ""foo"", ""wrap"": ""%{0}%"" },
+			{ ""value"": ""bar"" }
+		]}
+	]}", "(42,->%foo%,bar<-)")]
+		[TestCase(@"[{""value"":""hello""},{""value"":""world""},{""wrap"":""##{0}##"",""children"":null}]", "hello,world,##null##")]
+		public void JsonParse_NestedStructure_ReducesCorrectly(string jsonText, string expectedResult)
+		{
+			var result = Parse(jsonText);
+			var visitor = new WrappingVisitor();
+
+			result.Should().NotBeNull();
+
+			var serialized = visitor.Visit(result);
+			serialized.Should().Be(expectedResult);
+		}
+
+
+
 		private JsonValue Parse(string text)
 		{
 			var grammar = new JsonGrammar();
@@ -82,6 +124,40 @@ namespace Pegatron.UnitTests.Json
 			var lexer = new JsonLexer(text);
 
 			return parser.Parse(new TokenStream(lexer).Start());
+		}
+
+		private class WrappingVisitor : IJsonVisitor<string>
+		{
+			public string Array(JsonArray value)
+			{
+				return value.Select(c => this.Visit(c)).StrJoin(",");
+			}
+
+			public string Object(JsonObject value)
+			{
+				var result = string.Empty;
+
+				if (value.Has("value"))
+				{
+					result = this.Visit(value["value"]!);
+				}
+				else
+				{
+					result = this.Visit(value["children"]!);
+				}
+
+				if (value.Has("wrap"))
+				{
+					result = string.Format((value["wrap"] as JsonPrimitive)?.Text ?? string.Empty, result);
+				}
+
+				return result;
+			}
+
+			public string Primitive(JsonPrimitive value)
+			{
+				return value.Text;
+			}
 		}
 	}
 }

@@ -22,6 +22,11 @@ namespace Pegatron.UnitTests.Json
 			_properties = properties.ToDictionary(p => p.Name);
 		}
 
+		public bool Has(string name)
+		{
+			return _properties.ContainsKey(name);
+		}
+
 		public IEnumerator<JsonProperty> GetEnumerator()
 		{
 			return _properties.Values.GetEnumerator();
