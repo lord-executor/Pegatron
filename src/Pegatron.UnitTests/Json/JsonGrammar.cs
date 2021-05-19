@@ -11,7 +11,7 @@ namespace Pegatron.UnitTests.Json
 			this.DefineRule("value := object | array | primitive");
 			this.DefineRule("object := '{' properties? #props '}'")
 				.ReduceWith(ObjectReducer);
-			this.DefineRule("array := '[' (primitive (',' primitive)?)? ']'")
+			this.DefineRule("array := '[' (primitive #values (',' primitive #values)?)? ']'")
 				.ReduceWith(ArrayReducer);
 			this.DefineRule("primitive := T<String> | T<Number> | T<Boolean> | T<Null>");
 			this.DefineRule("properties := property #props (',' properties #props)?")
@@ -44,7 +44,7 @@ namespace Pegatron.UnitTests.Json
 
 		private JsonValue ArrayReducer(IRule rule, INodeContext<JsonValue> page)
 		{
-			return new JsonArray(page.GetAll().Where(x => !(x is JsonPrimitive p) || p.ValueType != JsonTokenType.Special).ToList());
+			return new JsonArray(page.Get("values").ToList());
 		}
 
 		private IEnumerable<JsonValue> PropertiesReducer(IRule rule, INodeContext<JsonValue> page)

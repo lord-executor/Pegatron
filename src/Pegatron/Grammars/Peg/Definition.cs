@@ -47,17 +47,19 @@ namespace Pegatron.Grammars.Peg
 			if (level > 0)
 			{
 				var namedChildren = rule.Children.Where(r => r.RefName != null).ToList();
-				if (namedChildren.Count > 1)
+				if (namedChildren.Select(c => c.RefName).Distinct().Count() > 1)
 				{
-					throw new Exception($"Cannot propagate multiple ref names inside of {rule.DisplayText}");
+					throw new Exception($"Cannot propagate multiple distinct ref names inside of {rule.DisplayText}");
 				}
-
-				if (namedChildren.Count == 1)
+				else if (namedChildren.Count > 0)
 				{
-					var name = namedChildren.Single().RefName;
+					var name = namedChildren.First().RefName;
 					if (name != IRuleRef.LiftRefName)
 					{
-						namedChildren.Single().RefName = IRuleRef.LiftRefName;
+						foreach (var child in namedChildren)
+						{
+							child.RefName = IRuleRef.LiftRefName;
+						}
 						return name;
 					}
 				}
