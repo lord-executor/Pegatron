@@ -21,7 +21,7 @@ namespace Pegatron.UnitTests.Parsing
 		{
 			Action action = () => CreateParser("main := 'A' ('B' #foo 'C' #bar)");
 
-			action.Should().Throw<Exception>().WithMessage("*multiple ref names*");
+			action.Should().Throw<Exception>().WithMessage("*multiple distinct ref names*");
 		}
 
 		[Test]

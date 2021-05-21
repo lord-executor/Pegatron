@@ -1,0 +1,2931 @@
+{
+  "Name": "Pegatron",
+  "Type": "Dir",
+  "Size": 0,
+  "Attributes": "Directory",
+  "Children": [
+    {
+      "Name": ".editorconfig",
+      "Type": "File",
+      "Size": 358,
+      "Attributes": "Archive",
+      "Children": null
+    },
+    {
+      "Name": ".github",
+      "Type": "Dir",
+      "Size": 0,
+      "Attributes": "Directory",
+      "Children": [
+        {
+          "Name": "workflows",
+          "Type": "Dir",
+          "Size": 0,
+          "Attributes": "Directory",
+          "Children": [
+            {
+              "Name": "build.yml",
+              "Type": "File",
+              "Size": 570,
+              "Attributes": "Archive",
+              "Children": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": ".gitignore",
+      "Type": "File",
+      "Size": 7772,
+      "Attributes": "Archive",
+      "Children": null
+    },
+    {
+      "Name": "coverage",
+      "Type": "Dir",
+      "Size": 0,
+      "Attributes": "Directory",
+      "Children": [
+        {
+          "Name": "files",
+          "Type": "Dir",
+          "Size": 0,
+          "Attributes": "Directory",
+          "Children": [
+            {
+              "Name": "Pegatron",
+              "Type": "Dir",
+              "Size": 0,
+              "Attributes": "Directory",
+              "Children": [
+                {
+                  "Name": "AdHocGrammar.cs.html",
+                  "Type": "File",
+                  "Size": 3574,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "CharacterLexer.cs.html",
+                  "Type": "File",
+                  "Size": 5671,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "Core",
+                  "Type": "Dir",
+                  "Size": 0,
+                  "Attributes": "Directory",
+                  "Children": [
+                    {
+                      "Name": "ArgAssert.cs.html",
+                      "Type": "File",
+                      "Size": 3697,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "CoroutineResult.cs.html",
+                      "Type": "File",
+                      "Size": 3695,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "CstNodeRenderer.cs.html",
+                      "Type": "File",
+                      "Size": 4361,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "EnumSequence.cs.html",
+                      "Type": "File",
+                      "Size": 3387,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "NodeContext.cs.html",
+                      "Type": "File",
+                      "Size": 5035,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "RuleContext.cs.html",
+                      "Type": "File",
+                      "Size": 4956,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "RuleResult.cs.html",
+                      "Type": "File",
+                      "Size": 3777,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "Rules",
+                      "Type": "Dir",
+                      "Size": 0,
+                      "Attributes": "Directory",
+                      "Children": [
+                        {
+                          "Name": "And.cs.html",
+                          "Type": "File",
+                          "Size": 4521,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "AnyTerminal.cs.html",
+                          "Type": "File",
+                          "Size": 4416,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Choice.cs.html",
+                          "Type": "File",
+                          "Size": 4967,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Not.cs.html",
+                          "Type": "File",
+                          "Size": 4521,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Repeat.cs.html",
+                          "Type": "File",
+                          "Size": 5678,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Sequence.cs.html",
+                          "Type": "File",
+                          "Size": 4913,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Terminal.cs.html",
+                          "Type": "File",
+                          "Size": 5283,
+                          "Attributes": "Archive",
+                          "Children": null
+                        }
+                      ]
+                    },
+                    {
+                      "Name": "RuleState.cs.html",
+                      "Type": "File",
+                      "Size": 6126,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "TokenPredicateMatcher.cs.html",
+                      "Type": "File",
+                      "Size": 3679,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "TokenStream.cs.html",
+                      "Type": "File",
+                      "Size": 5224,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "TokenStreamExtensions.cs.html",
+                      "Type": "File",
+                      "Size": 3056,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "TokenStreamIndex.cs.html",
+                      "Type": "File",
+                      "Size": 4728,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "TokenStreamSpan.cs.html",
+                      "Type": "File",
+                      "Size": 4735,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "TokenTypeMatcher.cs.html",
+                      "Type": "File",
+                      "Size": 3316,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "TokenValueMatcher.cs.html",
+                      "Type": "File",
+                      "Size": 3323,
+                      "Attributes": "Archive",
+                      "Children": null
+                    }
+                  ]
+                },
+                {
+                  "Name": "CstNode.cs.html",
+                  "Type": "File",
+                  "Size": 5195,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "Grammar.cs.html",
+                  "Type": "File",
+                  "Size": 6691,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "GrammarBuilderExtensions.cs.html",
+                  "Type": "File",
+                  "Size": 9035,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "GrammarException.cs.html",
+                  "Type": "File",
+                  "Size": 3994,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "Grammars",
+                  "Type": "Dir",
+                  "Size": 0,
+                  "Attributes": "Directory",
+                  "Children": [
+                    {
+                      "Name": "Math",
+                      "Type": "Dir",
+                      "Size": 0,
+                      "Attributes": "Directory",
+                      "Children": [
+                        {
+                          "Name": "Ast",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "BinaryChain.cs.html",
+                              "Type": "File",
+                              "Size": 3508,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "BinaryChainLink.cs.html",
+                              "Type": "File",
+                              "Size": 3375,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "CollectionNode.cs.html",
+                              "Type": "File",
+                              "Size": 3258,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Number.cs.html",
+                              "Type": "File",
+                              "Size": 3175,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "TokenNode.cs.html",
+                              "Type": "File",
+                              "Size": 3185,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Variable.cs.html",
+                              "Type": "File",
+                              "Size": 3198,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "EvaluationContext.cs.html",
+                          "Type": "File",
+                          "Size": 3906,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Evaluator.cs.html",
+                          "Type": "File",
+                          "Size": 5015,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "InfixRenderer.cs.html",
+                          "Type": "File",
+                          "Size": 3960,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "IVisitor.cs.html",
+                          "Type": "File",
+                          "Size": 3832,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Lexer.cs.html",
+                          "Type": "File",
+                          "Size": 7302,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "RpnGrammar.cs.html",
+                          "Type": "File",
+                          "Size": 7789,
+                          "Attributes": "Archive",
+                          "Children": null
+                        }
+                      ]
+                    },
+                    {
+                      "Name": "Peg",
+                      "Type": "Dir",
+                      "Size": 0,
+                      "Attributes": "Directory",
+                      "Children": [
+                        {
+                          "Name": "Ast",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "ProtoRule.cs.html",
+                              "Type": "File",
+                              "Size": 8085,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Range.cs.html",
+                              "Type": "File",
+                              "Size": 3369,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Value.cs.html",
+                              "Type": "File",
+                              "Size": 3216,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "Atom.cs.html",
+                          "Type": "File",
+                          "Size": 3613,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "AtomExpression.cs.html",
+                          "Type": "File",
+                          "Size": 6162,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Choice.cs.html",
+                          "Type": "File",
+                          "Size": 4538,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Definition.cs.html",
+                          "Type": "File",
+                          "Size": 6707,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Lexer.cs.html",
+                          "Type": "File",
+                          "Size": 7343,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "MinMaxDef.cs.html",
+                          "Type": "File",
+                          "Size": 4700,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "NamedAtom.cs.html",
+                          "Type": "File",
+                          "Size": 4985,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "PegGrammar.cs.html",
+                          "Type": "File",
+                          "Size": 5206,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "RangeDef.cs.html",
+                          "Type": "File",
+                          "Size": 4687,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "RuleRefDef.cs.html",
+                          "Type": "File",
+                          "Size": 3853,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Sequence.cs.html",
+                          "Type": "File",
+                          "Size": 4169,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Terminal.cs.html",
+                          "Type": "File",
+                          "Size": 3565,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "TerminalAny.cs.html",
+                          "Type": "File",
+                          "Size": 3634,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "TerminalLiteral.cs.html",
+                          "Type": "File",
+                          "Size": 4437,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "TerminalType.cs.html",
+                          "Type": "File",
+                          "Size": 4131,
+                          "Attributes": "Archive",
+                          "Children": null
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "IDebugHooks.cs.html",
+                  "Type": "File",
+                  "Size": 3970,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "IGrammar.cs.html",
+                  "Type": "File",
+                  "Size": 4357,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "INodeContext.cs.html",
+                  "Type": "File",
+                  "Size": 3562,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "IRule.cs.html",
+                  "Type": "File",
+                  "Size": 5053,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "IRuleRef.cs.html",
+                  "Type": "File",
+                  "Size": 3922,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "LexerException.cs.html",
+                  "Type": "File",
+                  "Size": 4003,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "NodeContextValue.cs.html",
+                  "Type": "File",
+                  "Size": 5031,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "Parser.cs.html",
+                  "Type": "File",
+                  "Size": 14969,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "ParserException.cs.html",
+                  "Type": "File",
+                  "Size": 4545,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "RuleRef.cs.html",
+                  "Type": "File",
+                  "Size": 7168,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "Token.cs.html",
+                  "Type": "File",
+                  "Size": 3899,
+                  "Attributes": "Archive",
+                  "Children": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "index.html",
+          "Type": "File",
+          "Size": 62815,
+          "Attributes": "Archive",
+          "Children": null
+        }
+      ]
+    },
+    {
+      "Name": "LICENSE",
+      "Type": "File",
+      "Size": 1060,
+      "Attributes": "Archive",
+      "Children": null
+    },
+    {
+      "Name": "README.md",
+      "Type": "File",
+      "Size": 838,
+      "Attributes": "Archive",
+      "Children": null
+    },
+    {
+      "Name": "src",
+      "Type": "Dir",
+      "Size": 0,
+      "Attributes": "Directory",
+      "Children": [
+        {
+          "Name": ".vs",
+          "Type": "Dir",
+          "Size": 0,
+          "Attributes": "Hidden, Directory",
+          "Children": [
+            {
+              "Name": "Pegatron",
+              "Type": "Dir",
+              "Size": 0,
+              "Attributes": "Directory",
+              "Children": [
+                {
+                  "Name": "DesignTimeBuild",
+                  "Type": "Dir",
+                  "Size": 0,
+                  "Attributes": "Directory",
+                  "Children": [
+                    {
+                      "Name": ".dtbcache.v2",
+                      "Type": "File",
+                      "Size": 81881,
+                      "Attributes": "Archive",
+                      "Children": null
+                    }
+                  ]
+                },
+                {
+                  "Name": "v16",
+                  "Type": "Dir",
+                  "Size": 0,
+                  "Attributes": "Directory",
+                  "Children": [
+                    {
+                      "Name": ".suo",
+                      "Type": "File",
+                      "Size": 208384,
+                      "Attributes": "Hidden, Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "TestStore",
+                      "Type": "Dir",
+                      "Size": 0,
+                      "Attributes": "Directory",
+                      "Children": [
+                        {
+                          "Name": "1",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "682.testlog",
+                              "Type": "File",
+                              "Size": 223774,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "testlog.manifest",
+                              "Type": "File",
+                              "Size": 24,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Pegatron",
+          "Type": "Dir",
+          "Size": 0,
+          "Attributes": "Directory",
+          "Children": [
+            {
+              "Name": "AdHocGrammar.cs",
+              "Type": "File",
+              "Size": 528,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "AssemblyInfo.cs",
+              "Type": "File",
+              "Size": 428,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "bin",
+              "Type": "Dir",
+              "Size": 0,
+              "Attributes": "Directory",
+              "Children": [
+                {
+                  "Name": "Debug",
+                  "Type": "Dir",
+                  "Size": 0,
+                  "Attributes": "Directory",
+                  "Children": [
+                    {
+                      "Name": "net5.0",
+                      "Type": "Dir",
+                      "Size": 0,
+                      "Attributes": "Directory",
+                      "Children": [
+                        {
+                          "Name": "Pegatron.deps.json",
+                          "Type": "File",
+                          "Size": 416,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.dll",
+                          "Type": "File",
+                          "Size": 80896,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.pdb",
+                          "Type": "File",
+                          "Size": 37412,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "ref",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "Pegatron.dll",
+                              "Type": "File",
+                              "Size": 38912,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "CharacterLexer.cs",
+              "Type": "File",
+              "Size": 1036,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "Core",
+              "Type": "Dir",
+              "Size": 0,
+              "Attributes": "Directory",
+              "Children": [
+                {
+                  "Name": "ArgAssert.cs",
+                  "Type": "File",
+                  "Size": 488,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "CoroutineResult.cs",
+                  "Type": "File",
+                  "Size": 619,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "CstNodeRenderer.cs",
+                  "Type": "File",
+                  "Size": 657,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "EnumSequence.cs",
+                  "Type": "File",
+                  "Size": 373,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "IRuleContext.cs",
+                  "Type": "File",
+                  "Size": 501,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "IRuleOperation.cs",
+                  "Type": "File",
+                  "Size": 332,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "ITokenMatcher.cs",
+                  "Type": "File",
+                  "Size": 125,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "NodeContext.cs",
+                  "Type": "File",
+                  "Size": 1120,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "RuleContext.cs",
+                  "Type": "File",
+                  "Size": 1149,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "RuleResult.cs",
+                  "Type": "File",
+                  "Size": 505,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "Rules",
+                  "Type": "Dir",
+                  "Size": 0,
+                  "Attributes": "Directory",
+                  "Children": [
+                    {
+                      "Name": "And.cs",
+                      "Type": "File",
+                      "Size": 772,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "AnyTerminal.cs",
+                      "Type": "File",
+                      "Size": 697,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "Choice.cs",
+                      "Type": "File",
+                      "Size": 1007,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "Not.cs",
+                      "Type": "File",
+                      "Size": 772,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "Repeat.cs",
+                      "Type": "File",
+                      "Size": 1261,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "Sequence.cs",
+                      "Type": "File",
+                      "Size": 956,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "Terminal.cs",
+                      "Type": "File",
+                      "Size": 1111,
+                      "Attributes": "Archive",
+                      "Children": null
+                    }
+                  ]
+                },
+                {
+                  "Name": "RuleState.cs",
+                  "Type": "File",
+                  "Size": 2636,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "RuleType.cs",
+                  "Type": "File",
+                  "Size": 93,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "TokenPredicateMatcher.cs",
+                  "Type": "File",
+                  "Size": 473,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "TokenStream.cs",
+                  "Type": "File",
+                  "Size": 1123,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "TokenStreamExtensions.cs",
+                  "Type": "File",
+                  "Size": 202,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "TokenStreamIndex.cs",
+                  "Type": "File",
+                  "Size": 820,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "TokenStreamSpan.cs",
+                  "Type": "File",
+                  "Size": 992,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "TokenTypeMatcher.cs",
+                  "Type": "File",
+                  "Size": 307,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "TokenValueMatcher.cs",
+                  "Type": "File",
+                  "Size": 313,
+                  "Attributes": "Archive",
+                  "Children": null
+                }
+              ]
+            },
+            {
+              "Name": "CstNode.cs",
+              "Type": "File",
+              "Size": 1019,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "Grammar.cs",
+              "Type": "File",
+              "Size": 1879,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "GrammarBuilderExtensions.cs",
+              "Type": "File",
+              "Size": 3743,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "GrammarException.cs",
+              "Type": "File",
+              "Size": 801,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "Grammars",
+              "Type": "Dir",
+              "Size": 0,
+              "Attributes": "Directory",
+              "Children": [
+                {
+                  "Name": "Math",
+                  "Type": "Dir",
+                  "Size": 0,
+                  "Attributes": "Directory",
+                  "Children": [
+                    {
+                      "Name": "Ast",
+                      "Type": "Dir",
+                      "Size": 0,
+                      "Attributes": "Directory",
+                      "Children": [
+                        {
+                          "Name": "BinaryChain.cs",
+                          "Type": "File",
+                          "Size": 440,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "BinaryChainLink.cs",
+                          "Type": "File",
+                          "Size": 305,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "CollectionNode.cs",
+                          "Type": "File",
+                          "Size": 289,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Node.cs",
+                          "Type": "File",
+                          "Size": 87,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Number.cs",
+                          "Type": "File",
+                          "Size": 216,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "TokenNode.cs",
+                          "Type": "File",
+                          "Size": 222,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Variable.cs",
+                          "Type": "File",
+                          "Size": 237,
+                          "Attributes": "Archive",
+                          "Children": null
+                        }
+                      ]
+                    },
+                    {
+                      "Name": "EvaluationContext.cs",
+                      "Type": "File",
+                      "Size": 634,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "Evaluator.cs",
+                      "Type": "File",
+                      "Size": 1036,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "InfixRenderer.cs",
+                      "Type": "File",
+                      "Size": 595,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "IVisitor.cs",
+                      "Type": "File",
+                      "Size": 768,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "Lexer.cs",
+                      "Type": "File",
+                      "Size": 2096,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "RpnGrammar.cs",
+                      "Type": "File",
+                      "Size": 2270,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "TokenType.cs",
+                      "Type": "File",
+                      "Size": 297,
+                      "Attributes": "Archive",
+                      "Children": null
+                    }
+                  ]
+                },
+                {
+                  "Name": "Peg",
+                  "Type": "Dir",
+                  "Size": 0,
+                  "Attributes": "Directory",
+                  "Children": [
+                    {
+                      "Name": "Ast",
+                      "Type": "Dir",
+                      "Size": 0,
+                      "Attributes": "Directory",
+                      "Children": [
+                        {
+                          "Name": "INode.cs",
+                          "Type": "File",
+                          "Size": 113,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "ProtoRule.cs",
+                          "Type": "File",
+                          "Size": 2337,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Range.cs",
+                          "Type": "File",
+                          "Size": 263,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Value.cs",
+                          "Type": "File",
+                          "Size": 207,
+                          "Attributes": "Archive",
+                          "Children": null
+                        }
+                      ]
+                    },
+                    {
+                      "Name": "Atom.cs",
+                      "Type": "File",
+                      "Size": 509,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "AtomExpression.cs",
+                      "Type": "File",
+                      "Size": 1612,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "Choice.cs",
+                      "Type": "File",
+                      "Size": 915,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "Definition.cs",
+                      "Type": "File",
+                      "Size": 1848,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "Lexer.cs",
+                      "Type": "File",
+                      "Size": 2115,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "MinMaxDef.cs",
+                      "Type": "File",
+                      "Size": 975,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "NamedAtom.cs",
+                      "Type": "File",
+                      "Size": 1048,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "PegGrammar.cs",
+                      "Type": "File",
+                      "Size": 1107,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "RangeDef.cs",
+                      "Type": "File",
+                      "Size": 916,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "RuleRefDef.cs",
+                      "Type": "File",
+                      "Size": 588,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "Sequence.cs",
+                      "Type": "File",
+                      "Size": 748,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "Terminal.cs",
+                      "Type": "File",
+                      "Size": 457,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "TerminalAny.cs",
+                      "Type": "File",
+                      "Size": 526,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "TerminalLiteral.cs",
+                      "Type": "File",
+                      "Size": 907,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "TerminalType.cs",
+                      "Type": "File",
+                      "Size": 758,
+                      "Attributes": "Archive",
+                      "Children": null
+                    },
+                    {
+                      "Name": "TokenType.cs",
+                      "Type": "File",
+                      "Size": 121,
+                      "Attributes": "Archive",
+                      "Children": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "IDebugHooks.cs",
+              "Type": "File",
+              "Size": 810,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "IGrammar.cs",
+              "Type": "File",
+              "Size": 1516,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "IGrammarBuilder.cs",
+              "Type": "File",
+              "Size": 170,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "IGrammarRule.cs",
+              "Type": "File",
+              "Size": 123,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "ILexer.cs",
+              "Type": "File",
+              "Size": 471,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "INodeContext.cs",
+              "Type": "File",
+              "Size": 563,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "IRule.cs",
+              "Type": "File",
+              "Size": 1230,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "IRuleRef.cs",
+              "Type": "File",
+              "Size": 831,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "IToken.cs",
+              "Type": "File",
+              "Size": 221,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "LexerException.cs",
+              "Type": "File",
+              "Size": 812,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "NodeContextValue.cs",
+              "Type": "File",
+              "Size": 1040,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "obj",
+              "Type": "Dir",
+              "Size": 0,
+              "Attributes": "Directory",
+              "Children": [
+                {
+                  "Name": "Debug",
+                  "Type": "Dir",
+                  "Size": 0,
+                  "Attributes": "Directory",
+                  "Children": [
+                    {
+                      "Name": "net5.0",
+                      "Type": "Dir",
+                      "Size": 0,
+                      "Attributes": "Directory",
+                      "Children": [
+                        {
+                          "Name": ".NETCoreApp,Version=v5.0.AssemblyAttributes.cs",
+                          "Type": "File",
+                          "Size": 190,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.AssemblyInfo.cs",
+                          "Type": "File",
+                          "Size": 997,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.AssemblyInfoInputs.cache",
+                          "Type": "File",
+                          "Size": 42,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.assets.cache",
+                          "Type": "File",
+                          "Size": 195,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.csproj.CoreCompileInputs.cache",
+                          "Type": "File",
+                          "Size": 42,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.csproj.FileListAbsolute.txt",
+                          "Type": "File",
+                          "Size": 1158,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.csprojAssemblyReference.cache",
+                          "Type": "File",
+                          "Size": 85257,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.dll",
+                          "Type": "File",
+                          "Size": 80896,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.GeneratedMSBuildEditorConfig.editorconfig",
+                          "Type": "File",
+                          "Size": 343,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.pdb",
+                          "Type": "File",
+                          "Size": 37412,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "ref",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "Pegatron.dll",
+                              "Type": "File",
+                              "Size": 38912,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "Pegatron.csproj.nuget.dgspec.json",
+                  "Type": "File",
+                  "Size": 2254,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "Pegatron.csproj.nuget.g.props",
+                  "Type": "File",
+                  "Size": 1402,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "Pegatron.csproj.nuget.g.targets",
+                  "Type": "File",
+                  "Size": 294,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "project.assets.json",
+                  "Type": "File",
+                  "Size": 2202,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "project.nuget.cache",
+                  "Type": "File",
+                  "Size": 297,
+                  "Attributes": "Archive",
+                  "Children": null
+                }
+              ]
+            },
+            {
+              "Name": "Parser.cs",
+              "Type": "File",
+              "Size": 6031,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "ParserException.cs",
+              "Type": "File",
+              "Size": 1203,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "Pegatron.csproj",
+              "Type": "File",
+              "Size": 285,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "Reducer.cs",
+              "Type": "File",
+              "Size": 238,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "RuleRef.cs",
+              "Type": "File",
+              "Size": 1974,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "Token.cs",
+              "Type": "File",
+              "Size": 447,
+              "Attributes": "Archive",
+              "Children": null
+            }
+          ]
+        },
+        {
+          "Name": "Pegatron.sln",
+          "Type": "File",
+          "Size": 1637,
+          "Attributes": "Archive",
+          "Children": null
+        },
+        {
+          "Name": "Pegatron.snk",
+          "Type": "File",
+          "Size": 596,
+          "Attributes": "Archive",
+          "Children": null
+        },
+        {
+          "Name": "Pegatron.UnitTests",
+          "Type": "Dir",
+          "Size": 0,
+          "Attributes": "Directory",
+          "Children": [
+            {
+              "Name": "bin",
+              "Type": "Dir",
+              "Size": 0,
+              "Attributes": "Directory",
+              "Children": [
+                {
+                  "Name": "Debug",
+                  "Type": "Dir",
+                  "Size": 0,
+                  "Attributes": "Directory",
+                  "Children": [
+                    {
+                      "Name": "net5.0",
+                      "Type": "Dir",
+                      "Size": 0,
+                      "Attributes": "Directory",
+                      "Children": [
+                        {
+                          "Name": "CoverletSourceRootsMapping",
+                          "Type": "File",
+                          "Size": 622,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "cs",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "Microsoft.TestPlatform.CommunicationUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 22816,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CoreUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 23328,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CrossPlatEngine.resources.dll",
+                              "Type": "File",
+                              "Size": 25888,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.Common.resources.dll",
+                              "Type": "File",
+                              "Size": 26400,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll",
+                              "Type": "File",
+                              "Size": 30184,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "de",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "Microsoft.TestPlatform.CommunicationUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 22808,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CoreUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 23328,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CrossPlatEngine.resources.dll",
+                              "Type": "File",
+                              "Size": 25888,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.Common.resources.dll",
+                              "Type": "File",
+                              "Size": 26400,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll",
+                              "Type": "File",
+                              "Size": 30696,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "es",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "Microsoft.TestPlatform.CommunicationUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 22808,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CoreUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 23328,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CrossPlatEngine.resources.dll",
+                              "Type": "File",
+                              "Size": 25888,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.Common.resources.dll",
+                              "Type": "File",
+                              "Size": 26400,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll",
+                              "Type": "File",
+                              "Size": 30488,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "FluentAssertions.dll",
+                          "Type": "File",
+                          "Size": 456704,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "fr",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "Microsoft.TestPlatform.CommunicationUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 22816,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CoreUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 23320,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CrossPlatEngine.resources.dll",
+                              "Type": "File",
+                              "Size": 25888,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.Common.resources.dll",
+                              "Type": "File",
+                              "Size": 26912,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll",
+                              "Type": "File",
+                              "Size": 30496,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "it",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "Microsoft.TestPlatform.CommunicationUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 22816,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CoreUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 23320,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CrossPlatEngine.resources.dll",
+                              "Type": "File",
+                              "Size": 25888,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.Common.resources.dll",
+                              "Type": "File",
+                              "Size": 26912,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll",
+                              "Type": "File",
+                              "Size": 30496,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "ja",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "Microsoft.TestPlatform.CommunicationUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 23320,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CoreUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 23832,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CrossPlatEngine.resources.dll",
+                              "Type": "File",
+                              "Size": 26912,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.Common.resources.dll",
+                              "Type": "File",
+                              "Size": 27416,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll",
+                              "Type": "File",
+                              "Size": 31000,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "ko",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "Microsoft.TestPlatform.CommunicationUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 22816,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CoreUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 23328,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CrossPlatEngine.resources.dll",
+                              "Type": "File",
+                              "Size": 25888,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.Common.resources.dll",
+                              "Type": "File",
+                              "Size": 26400,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll",
+                              "Type": "File",
+                              "Size": 30704,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "Microsoft.DotNet.InternalAbstractions.dll",
+                          "Type": "File",
+                          "Size": 23616,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Microsoft.TestPlatform.CommunicationUtilities.dll",
+                          "Type": "File",
+                          "Size": 97560,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Microsoft.TestPlatform.CoreUtilities.dll",
+                          "Type": "File",
+                          "Size": 51992,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Microsoft.TestPlatform.CrossPlatEngine.dll",
+                          "Type": "File",
+                          "Size": 165656,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Microsoft.TestPlatform.PlatformAbstractions.dll",
+                          "Type": "File",
+                          "Size": 39192,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Microsoft.TestPlatform.Utilities.dll",
+                          "Type": "File",
+                          "Size": 50456,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Microsoft.VisualStudio.CodeCoverage.Shim.dll",
+                          "Type": "File",
+                          "Size": 23832,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Microsoft.VisualStudio.TestPlatform.Common.dll",
+                          "Type": "File",
+                          "Size": 158496,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Microsoft.VisualStudio.TestPlatform.ObjectModel.dll",
+                          "Type": "File",
+                          "Size": 160024,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Newtonsoft.Json.dll",
+                          "Type": "File",
+                          "Size": 695336,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "NuGet.Frameworks.dll",
+                          "Type": "File",
+                          "Size": 108808,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "nunit.engine.api.dll",
+                          "Type": "File",
+                          "Size": 17920,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "nunit.engine.dll",
+                          "Type": "File",
+                          "Size": 92672,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "nunit.framework.dll",
+                          "Type": "File",
+                          "Size": 391168,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "NUnit3.TestAdapter.dll",
+                          "Type": "File",
+                          "Size": 410624,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "NUnit3.TestAdapter.pdb",
+                          "Type": "File",
+                          "Size": 21380,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "nunit_random_seed.tmp",
+                          "Type": "File",
+                          "Size": 10,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.dll",
+                          "Type": "File",
+                          "Size": 80896,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.pdb",
+                          "Type": "File",
+                          "Size": 37412,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.UnitTests.deps.json",
+                          "Type": "File",
+                          "Size": 48467,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.UnitTests.dll",
+                          "Type": "File",
+                          "Size": 216064,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.UnitTests.pdb",
+                          "Type": "File",
+                          "Size": 31204,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.UnitTests.runtimeconfig.dev.json",
+                          "Type": "File",
+                          "Size": 242,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.UnitTests.runtimeconfig.json",
+                          "Type": "File",
+                          "Size": 147,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "pl",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "Microsoft.TestPlatform.CommunicationUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 22816,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CoreUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 23328,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CrossPlatEngine.resources.dll",
+                              "Type": "File",
+                              "Size": 25880,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.Common.resources.dll",
+                              "Type": "File",
+                              "Size": 27120,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll",
+                              "Type": "File",
+                              "Size": 30488,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "pt-BR",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "Microsoft.TestPlatform.CommunicationUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 22816,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CoreUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 23320,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CrossPlatEngine.resources.dll",
+                              "Type": "File",
+                              "Size": 25888,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.Common.resources.dll",
+                              "Type": "File",
+                              "Size": 26392,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll",
+                              "Type": "File",
+                              "Size": 30496,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "ref",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "Pegatron.UnitTests.dll",
+                              "Type": "File",
+                              "Size": 30208,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "ru",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "Microsoft.TestPlatform.CommunicationUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 23328,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CoreUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 23840,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CrossPlatEngine.resources.dll",
+                              "Type": "File",
+                              "Size": 27424,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.Common.resources.dll",
+                              "Type": "File",
+                              "Size": 28448,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll",
+                              "Type": "File",
+                              "Size": 32536,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "runtimes",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "win",
+                              "Type": "Dir",
+                              "Size": 0,
+                              "Attributes": "Directory",
+                              "Children": [
+                                {
+                                  "Name": "lib",
+                                  "Type": "Dir",
+                                  "Size": 0,
+                                  "Attributes": "Directory",
+                                  "Children": [
+                                    {
+                                      "Name": "netstandard2.0",
+                                      "Type": "Dir",
+                                      "Size": 0,
+                                      "Attributes": "Directory",
+                                      "Children": [
+                                        {
+                                          "Name": "System.Security.Cryptography.ProtectedData.dll",
+                                          "Type": "File",
+                                          "Size": 31688,
+                                          "Attributes": "Archive",
+                                          "Children": null
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "System.Configuration.ConfigurationManager.dll",
+                          "Type": "File",
+                          "Size": 380360,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "System.Security.Cryptography.ProtectedData.dll",
+                          "Type": "File",
+                          "Size": 24880,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "System.Xml.XPath.XmlDocument.dll",
+                          "Type": "File",
+                          "Size": 118680,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "testhost.dll",
+                          "Type": "File",
+                          "Size": 33056,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "tr",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "Microsoft.TestPlatform.CommunicationUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 22816,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CoreUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 23320,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CrossPlatEngine.resources.dll",
+                              "Type": "File",
+                              "Size": 25888,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.Common.resources.dll",
+                              "Type": "File",
+                              "Size": 26392,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll",
+                              "Type": "File",
+                              "Size": 29984,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "zh-Hans",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "Microsoft.TestPlatform.CommunicationUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 22808,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CoreUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 23320,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CrossPlatEngine.resources.dll",
+                              "Type": "File",
+                              "Size": 25368,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.Common.resources.dll",
+                              "Type": "File",
+                              "Size": 25888,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll",
+                              "Type": "File",
+                              "Size": 29472,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "zh-Hant",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "Microsoft.TestPlatform.CommunicationUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 22808,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CoreUtilities.resources.dll",
+                              "Type": "File",
+                              "Size": 23328,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.TestPlatform.CrossPlatEngine.resources.dll",
+                              "Type": "File",
+                              "Size": 25376,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.Common.resources.dll",
+                              "Type": "File",
+                              "Size": 25880,
+                              "Attributes": "Archive",
+                              "Children": null
+                            },
+                            {
+                              "Name": "Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll",
+                              "Type": "File",
+                              "Size": 29472,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "CharacterLexerTest.cs",
+              "Type": "File",
+              "Size": 1191,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "Core",
+              "Type": "Dir",
+              "Size": 0,
+              "Attributes": "Directory",
+              "Children": [
+                {
+                  "Name": "CoroutineResultTest.cs",
+                  "Type": "File",
+                  "Size": 976,
+                  "Attributes": "Archive",
+                  "Children": null
+                }
+              ]
+            },
+            {
+              "Name": "coverage.json",
+              "Type": "File",
+              "Size": 151904,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "CstNodeTest.cs",
+              "Type": "File",
+              "Size": 1062,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "GrammarTest.cs",
+              "Type": "File",
+              "Size": 2711,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "Json",
+              "Type": "Dir",
+              "Size": 0,
+              "Attributes": "Directory",
+              "Children": [
+                {
+                  "Name": "IJsonVisitor.cs",
+                  "Type": "File",
+                  "Size": 784,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "JsonArray.cs",
+                  "Type": "File",
+                  "Size": 513,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "JsonComplexTest.cs",
+                  "Type": "File",
+                  "Size": 1254,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "JsonGrammar.cs",
+                  "Type": "File",
+                  "Size": 1897,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "JsonLexer.cs",
+                  "Type": "File",
+                  "Size": 2359,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "JsonObject.cs",
+                  "Type": "File",
+                  "Size": 855,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "JsonPrimitive.cs",
+                  "Type": "File",
+                  "Size": 447,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "JsonProperty.cs",
+                  "Type": "File",
+                  "Size": 256,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "JsonSimpleTest.cs",
+                  "Type": "File",
+                  "Size": 4579,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "JsonTokenType.cs",
+                  "Type": "File",
+                  "Size": 132,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "JsonValue.cs",
+                  "Type": "File",
+                  "Size": 115,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "sample-data",
+                  "Type": "Dir",
+                  "Size": 0,
+                  "Attributes": "Directory",
+                  "Children": [
+                    {
+                      "Name": "persons.json",
+                      "Type": "File",
+                      "Size": 138502,
+                      "Attributes": "Archive",
+                      "Children": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "Mocks",
+              "Type": "Dir",
+              "Size": 0,
+              "Attributes": "Directory",
+              "Children": [
+                {
+                  "Name": "MockRule.cs",
+                  "Type": "File",
+                  "Size": 1057,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "RuleExtensionMethods.cs",
+                  "Type": "File",
+                  "Size": 249,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "RuleOperationsMock.cs",
+                  "Type": "File",
+                  "Size": 1965,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "SimpleRef.cs",
+                  "Type": "File",
+                  "Size": 858,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "StaticLexer.cs",
+                  "Type": "File",
+                  "Size": 762,
+                  "Attributes": "Archive",
+                  "Children": null
+                }
+              ]
+            },
+            {
+              "Name": "NodeContextTest.cs",
+              "Type": "File",
+              "Size": 3162,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "obj",
+              "Type": "Dir",
+              "Size": 0,
+              "Attributes": "Directory",
+              "Children": [
+                {
+                  "Name": "Debug",
+                  "Type": "Dir",
+                  "Size": 0,
+                  "Attributes": "Directory",
+                  "Children": [
+                    {
+                      "Name": "net5.0",
+                      "Type": "Dir",
+                      "Size": 0,
+                      "Attributes": "Directory",
+                      "Children": [
+                        {
+                          "Name": ".NETCoreApp,Version=v5.0.AssemblyAttributes.cs",
+                          "Type": "File",
+                          "Size": 190,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.UnitTests.AssemblyInfo.cs",
+                          "Type": "File",
+                          "Size": 1027,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.UnitTests.AssemblyInfoInputs.cache",
+                          "Type": "File",
+                          "Size": 42,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.UnitTests.assets.cache",
+                          "Type": "File",
+                          "Size": 47847,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.UnitTests.csproj.CopyComplete",
+                          "Type": "File",
+                          "Size": 0,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.UnitTests.csproj.CoreCompileInputs.cache",
+                          "Type": "File",
+                          "Size": 42,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.UnitTests.csproj.FileListAbsolute.txt",
+                          "Type": "File",
+                          "Size": 14048,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.UnitTests.csprojAssemblyReference.cache",
+                          "Type": "File",
+                          "Size": 119303,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.UnitTests.dll",
+                          "Type": "File",
+                          "Size": 216064,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.UnitTests.GeneratedMSBuildEditorConfig.editorconfig",
+                          "Type": "File",
+                          "Size": 343,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.UnitTests.genruntimeconfig.cache",
+                          "Type": "File",
+                          "Size": 42,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "Pegatron.UnitTests.pdb",
+                          "Type": "File",
+                          "Size": 31204,
+                          "Attributes": "Archive",
+                          "Children": null
+                        },
+                        {
+                          "Name": "ref",
+                          "Type": "Dir",
+                          "Size": 0,
+                          "Attributes": "Directory",
+                          "Children": [
+                            {
+                              "Name": "Pegatron.UnitTests.dll",
+                              "Type": "File",
+                              "Size": 30208,
+                              "Attributes": "Archive",
+                              "Children": null
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "Pegatron.UnitTests.csproj.nuget.dgspec.json",
+                  "Type": "File",
+                  "Size": 5605,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "Pegatron.UnitTests.csproj.nuget.g.props",
+                  "Type": "File",
+                  "Size": 2827,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "Pegatron.UnitTests.csproj.nuget.g.targets",
+                  "Type": "File",
+                  "Size": 1315,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "project.assets.json",
+                  "Type": "File",
+                  "Size": 190284,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "project.nuget.cache",
+                  "Type": "File",
+                  "Size": 7498,
+                  "Attributes": "Archive",
+                  "Children": null
+                }
+              ]
+            },
+            {
+              "Name": "Parsing",
+              "Type": "Dir",
+              "Size": 0,
+              "Attributes": "Directory",
+              "Children": [
+                {
+                  "Name": "ParserSimpleGrammarTest.cs",
+                  "Type": "File",
+                  "Size": 2059,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "PegGrammarRulesTest.cs",
+                  "Type": "File",
+                  "Size": 1445,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "PegGrammarSelfTest.cs",
+                  "Type": "File",
+                  "Size": 5344,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "PegGrammarTest.cs",
+                  "Type": "File",
+                  "Size": 2431,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "PegLexerTest.cs",
+                  "Type": "File",
+                  "Size": 1707,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "RpnGrammarTest.cs",
+                  "Type": "File",
+                  "Size": 3453,
+                  "Attributes": "Archive",
+                  "Children": null
+                }
+              ]
+            },
+            {
+              "Name": "Pegatron.UnitTests.csproj",
+              "Type": "File",
+              "Size": 1201,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "RuleRefTest.cs",
+              "Type": "File",
+              "Size": 3531,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "Rules",
+              "Type": "Dir",
+              "Size": 0,
+              "Attributes": "Directory",
+              "Children": [
+                {
+                  "Name": "AndNotTest.cs",
+                  "Type": "File",
+                  "Size": 1915,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "AnyTerminalTest.cs",
+                  "Type": "File",
+                  "Size": 1505,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "ChoiceTest.cs",
+                  "Type": "File",
+                  "Size": 1490,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "RepeatTest.cs",
+                  "Type": "File",
+                  "Size": 2516,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "SequenceTest.cs",
+                  "Type": "File",
+                  "Size": 1557,
+                  "Attributes": "Archive",
+                  "Children": null
+                },
+                {
+                  "Name": "TerminalTest.cs",
+                  "Type": "File",
+                  "Size": 3286,
+                  "Attributes": "Archive",
+                  "Children": null
+                }
+              ]
+            },
+            {
+              "Name": "TestResult.xml",
+              "Type": "File",
+              "Size": 45368,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "TokenStreamIndexTest.cs",
+              "Type": "File",
+              "Size": 2100,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "TokenStreamSpanTest.cs",
+              "Type": "File",
+              "Size": 2357,
+              "Attributes": "Archive",
+              "Children": null
+            },
+            {
+              "Name": "TokenStreamTest.cs",
+              "Type": "File",
+              "Size": 3462,
+              "Attributes": "Archive",
+              "Children": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
