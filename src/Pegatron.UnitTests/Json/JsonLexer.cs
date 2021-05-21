@@ -5,9 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace Pegatron.UnitTests.Json
 {
-	public class JsonLexer : ILexer<Token>
+	public class JsonLexer : RegexPriorityLexer<Token>
 	{
-		private static readonly IList<(Regex exp, Func<uint, Match, Token> factory)> _matchers = new List<(Regex exp, Func<uint, Match, Token> factory)>
+		private static readonly IList<(Regex exp, Func<uint, Match, Token> factory)> _lexerExpressions = new List<(Regex exp, Func<uint, Match, Token> factory)>
 			{
 				(new Regex(@"\G\s*("".*?(?<!\\)"")", RegexOptions.Compiled), (line, match) => TokenFromMatch(line, JsonTokenType.String, match)),
 				(new Regex(@"\G\s*(true|false)", RegexOptions.Compiled), (line, match) => TokenFromMatch(line, JsonTokenType.Boolean, match)),
@@ -18,53 +18,14 @@ namespace Pegatron.UnitTests.Json
 
 		private static readonly Regex _escapes = new Regex(@"\\([""\\/])", RegexOptions.Compiled);
 
-		private readonly TextReader _reader;
-
 		public JsonLexer(string text)
 			: this(new StringReader(text))
 		{
 		}
 
 		public JsonLexer(TextReader reader)
+			: base(reader, _lexerExpressions, Token.Eos)
 		{
-			_reader = reader;
-		}
-
-		public IEnumerable<Token> ReadTokens()
-		{
-			var line = _reader.ReadLine();
-			uint lineCount = 0;
-			int index;
-
-			while (line != null)
-			{
-				lineCount++;
-				index = 0;
-				while (index < line.Length)
-				{
-					var startIndex = index;
-					foreach (var matcher in _matchers)
-					{
-						var m = matcher.exp.Match(line, index);
-						if (m.Success)
-						{
-							var token = matcher.factory(lineCount, m);
-							yield return token;
-
-							index = m.Index + m.Length;
-							break;
-						}
-					}
-					if (index == startIndex)
-					{
-						throw new LexerException(LexerExceptionId.UnrecognizedInput, lineCount, index, line);
-					}
-				}
-
-				line = _reader.ReadLine();
-			}
-
-			yield return Token.Eos;
 		}
 
 		private static Token TokenFromMatch(uint line, JsonTokenType type, Match match)
