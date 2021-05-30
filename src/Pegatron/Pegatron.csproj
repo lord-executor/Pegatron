@@ -6,5 +6,14 @@
     <AssemblyOriginatorKeyFile>..\Pegatron.snk</AssemblyOriginatorKeyFile>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <PropertyGroup>
+    <!-- See https://docs.microsoft.com/en-us/nuget/reference/msbuild-targets#packing-using-a-nuspec -->
+    <VersionPrefix>0.1.0</VersionPrefix>
+    <Authors>lord-executor</Authors>
+    <Copyright>Copyright (c) 2021 Lukas Angerer</Copyright>
+    <Description>Parsing Expression Grammar (PEG) rule engine and parser</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/lord-executor/Pegatron</PackageProjectUrl>
+  </PropertyGroup>
 
 </Project>
